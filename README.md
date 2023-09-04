@@ -5,10 +5,10 @@ En "El Pelotero", brindamos una extensa selección de pelotas de primera calidad
 ### Participantes
 
 * 
-* 
+* Guillermo Calamante. Tengo 28 años, soy de Santa Fe capital. Estudio en DH porque me gusta codear FrontEnd.
 * Joel Bonus, tengo 31 años, soy estudiante avanzado de C. Politica y ademas estudie automatizacion en plc y arduino
 * Lara Retamosa, tengo 24 años y estoy cursando TSDS en el ISP n°23.
-* Benjamin Meyer,  tengo 19 años y soy estudiante de ISI en la UTN.
+* Benjamin Meyer, tengo 19 años y soy estudiante de ISI en la UTN.
 
 ### Paginas de referencia
 
