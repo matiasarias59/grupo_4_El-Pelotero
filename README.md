@@ -4,7 +4,7 @@ En "El Pelotero", brindamos una extensa selección de pelotas de primera calidad
 
 ### Participantes
 
-* 
+* Matías Arias. Tengo 27 años, soy de Rosario. Desde muy joven me interesó la programación y hace unos años me decidí empezar a estudiar autodidacta. Siempre busco oportunidades para aprender y seguir creciendo. 
 * Guillermo Calamante. Tengo 28 años, soy de Santa Fe capital. Estudio en DH porque me gusta codear FrontEnd.
 * Joel Bonus, tengo 31 años, soy estudiante avanzado de C. Politica y ademas estudie automatizacion en plc y arduino
 * Lara Retamosa, tengo 24 años y estoy cursando TSDS en el ISP n°23.
