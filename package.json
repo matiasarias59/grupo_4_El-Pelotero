@@ -1,0 +1,19 @@
+{
+  "name": "grupo_4_el-pelotero",
+  "version": "1.0.0",
+  "description": "En \"El Pelotero\", brindamos una extensa selección de pelotas de primera calidad para deportes como fútbol, baloncesto, vóley, tenis y más. Nuestro público abarca desde entusiastas ocasionales hasta competidores serios. Nos destacamos por ofrecer un servicio ágil, precios competitivos.",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
