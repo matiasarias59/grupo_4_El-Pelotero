@@ -8,4 +8,5 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background: linear-gradient(135deg, #04D6C8, #345CBE);;
 }
