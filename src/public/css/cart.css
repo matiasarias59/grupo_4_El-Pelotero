@@ -1,0 +1,395 @@
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+a:visited {
+  color: initial;
+}
+
+/* --- Header Css --- */
+
+header {
+  /* position: fixed; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #04d6c8, #345cbe);
+  width: 100vw;
+  height: fit-content;
+  padding: 1rem 3rem;
+}
+
+.menu_icon {
+  background-color: #345cbe;
+  color: #fcfcfc;
+  font-size: 2rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.logo_container {
+  width: fit-content;
+}
+.logo_img {
+  width: 8rem;
+}
+
+.search-bar_mobile_icon {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+  color: #345cbe;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.search-bar_mobile {
+  display: none;
+  width: 0;
+  overflow: hidden;
+}
+
+.search_nav_container,
+.user_nav-bar {
+  display: none;
+}
+
+main {
+  font-size: 1.6rem;
+  padding: 2rem;
+  background-color: #fff; /* Fondo blanco */
+  border: 1px solid #e0e0e0; /* Borde gris claro */
+  border-radius: 1rem;
+  margin: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+h1, h2 {
+  color: #333; /* Color del texto principal */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column; /* Alinea los elementos en una columna */
+  color: #333;
+}
+/* Estilos para el campo de entrada numérica */
+.quantity input[type="number"] {
+  width: 30px;
+  padding: 0.2rem;
+  border: 2px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+
+.quantity input[type="number"]::before,
+.quantity input[type="number"]::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  line-height: 12px;
+  cursor: pointer;
+}
+
+
+
+.cart-items1{border-bottom: groove rgb(52, 92, 190);
+  box-shadow: 0px 1px 0px 0px rgb(100, 100, 100)}
+  .cart-items2{border-bottom: groove rgb(52, 92, 190);
+    box-shadow: 0px 1px 0px 0px rgb(100, 100, 100)}
+/* Estilos para las imágenes de los productos en el carrito */
+.cart-items1{
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.cart-items2{display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;}
+
+.product-img {
+  max-width: 100%;
+  max-height: 200px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product-details {
+  flex-grow: 1; /* Hace que los detalles ocupen todo el espacio disponible */
+}
+
+.quantity {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+
+.quantity input {
+  width: 40px;
+  text-align: center;
+}
+
+.cart-items img {
+  max-width: 100%; /* Establece un ancho máximo del 100% */
+  max-height: 200px; /* Establece una altura máxima de 200px (ajusta según sea necesario) */
+  height: auto; /* Permite que la altura se ajuste automáticamente */
+  margin-bottom: 10px; /* Agrega espacio entre las imágenes */
+  
+}
+
+.remove-btn {
+  background-color: #eee; /* Color de fondo para el botón eliminar */
+  color: #000000; /* Color del texto */
+  border: none;
+  border-radius: 0;
+  font-size: 1.2rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.remove-btn:hover {
+  background-color: #921102; /* Cambia el color de fondo al pasar el mouse por encima */
+}
+
+.cart-total {
+  margin-top: 2rem;
+    padding-top: 1rem;
+}
+.cart-total div {
+  display: flex;
+  border-bottom: 2px solid #e0e0e0;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: #555; /* Color del texto de los totales */
+}
+.checkout-button {
+  background-color: rgb(52, 92, 190);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.6rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 2rem;
+}
+.checkout-button:hover {
+  background-color: rgb(4, 215, 210);
+}
+
+ footer   {
+      background-color: #245052;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin: 0; 
+      width: 100%; 
+      position: relative; 
+      bottom: 0;
+  }
+  .footer-section {
+      margin-bottom: 20px;
+  }
+  
+  .footer-section h4 {
+      font-size: 18px;
+      text-align: center; 
+  }
+  
+  .footer-section p {
+      font-size: 14px;
+      text-align: center; 
+  }
+  
+  
+  .footer-section i {
+      font-size: 2em; 
+      margin-bottom: 10px; 
+      color: #fff; }
+      
+a{
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+.redes-sociales {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección del flujo a vertical */
+  align-items: center; /* Alinea horizontalmente los íconos y el texto */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.redes-sociales i {
+  margin-bottom: 0.5rem; /* Espacio entre el ícono y el texto */
+}
+.facebook,.instagram,.twitter,.youtube{display: flex;}
+
+
+/* Estilos para la sección de información de contacto en el footer */
+.Contacto {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección del flujo a vertical */
+  align-items: center; /* Alinea horizontalmente los íconos y el texto */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.Contacto i {
+  margin-bottom: 0.5rem; /* Espacio entre el ícono y el texto */
+}
+.direccion,.whatsapp,.telefono,.mail{
+  display: flex;
+}
+@media (min-width: 361px) {
+}
+
+/* DESKTOP */
+@media (min-width: 769px) {
+  /* --- Header Css Desktop --- */
+
+  .menu_icon,
+  .search-bar_mobile_icon {
+    display: none;
+  }
+
+  header {
+    justify-content: space-evenly;
+    padding: 1rem 0;
+  }
+
+  .search_nav_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .main_nav-bar {
+    display: flex;
+  }
+
+  .main_nav-bar_list {
+    list-style: none;
+    display: flex;
+    background-color: #fcfcfc;
+    color: #183234;
+    font-size: 1.5rem;
+    font-weight: 300;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+
+  .main_nav-bar_item {
+    margin: 0 1rem;
+  }
+  .main_nav-bar_brand_list {
+    list-style: none;
+    display: none;
+  }
+  .search-bar_desktop {
+    display: flex;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .search-bar_desktop_input {
+    border: none;
+    background-color: #fcfcfc;
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+  .search-bar_desktop_btn {
+    border: none;
+    background-color: #fcfcfc;
+    color: #183234;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .user_nav-bar {
+    display: flex;
+  }
+
+  .user_account a,
+  .user_likes a,
+  .user_cart a {
+    color: #fcfcfc;
+    font-size: 2.5rem;
+    margin: 2rem;
+  }
+  footer{
+    text-align: center;
+   display: flex;
+align-content: space-between;}
+   .footer-section{
+       flex: 1;
+       text-align: center;
+   }
+    .cart-items {
+      display: flex;
+      flex-direction: column;
+      max-width: 65%;
+     margin-right: 1rem;
+    }
+    .cart-total {
+     border: 2px solid rgb(25, 92, 190);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-left: auto;
+    margin-top: -2rem;
+    max-width: 35%;
+    max-height: 30%;
+    position: sticky;
+    transform: translate(12px, -275px);
+    box-shadow: 3px 3px 3px 3px rgb(100, 100, 100);
+    }
+    .subtotal,.shipping,.grand-total{font-size: 20px;
+      padding: 10px;}
+      .checkout-button {
+        background-color: rgb(52, 92, 190);
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;
+        font-size: 1.6rem;
+        padding: 1rem 2rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 3rem;
+        margin-left: 4rem;
+        transform: translate(45px, -9px);
+  }
+}
