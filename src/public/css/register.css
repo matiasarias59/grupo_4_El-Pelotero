@@ -16,7 +16,6 @@ a:visited {
   color: initial;
 }
 
-
 /* --- Header Css --- */
 
 header {
@@ -74,70 +73,66 @@ header {
 
 /* --- Register Css --- */
 
-
-.register_form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
+.register_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
-.register_title{
-    text-align: center;
-    color: #fcfcfc;
-    background-color: #345cbe;
-    font-size: 3rem;
-    font-weight: 400;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    width: 100%;
+.register_title {
+  text-align: center;
+  color: #fcfcfc;
+  background-color: #345cbe;
+  font-size: 3rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
 }
 
-.register_form_section{
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
+.register_form_section {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
 }
-.register_form_section:nth-last-child(2){
-    flex-direction: row; 
-    align-items: center;
+.register_form_section:nth-last-child(2) {
+  flex-direction: row;
+  align-items: center;
 }
 
 .register_form_label,
-.register_terms_check_label{
-    font-size: 1.5rem;
-    color: #183234;
-    margin: 0.5rem 0;
+.register_terms_check_label {
+  font-size: 1.5rem;
+  color: #183234;
+  margin: 0.5rem 0;
 }
 
-.register_form_input{
-    font-size: 1.5rem;
-    padding: 0.5rem 1.5rem;
-    border: solid 0.1rem #183234;
-    border-radius: 1rem;
+.register_form_input {
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border: solid 0.1rem #183234;
+  border-radius: 1rem;
 }
 
-.register_terms_check{
-    margin: 1rem;
+.register_terms_check {
+  margin: 1rem;
 }
 
-.register_form_btn{
-    border: none;
-    border-radius: 1.5rem;
-    text-align: center;
-    color: #fcfcfc;
-    background-color: #345cbe;
-    font-size: 2rem;
-    font-weight: 400;
-    padding: 1rem 0;
-    margin: 2rem;
-    width: 70%;
+.register_form_btn {
+  border: none;
+  border-radius: 1.5rem;
+  text-align: center;
+  color: #fcfcfc;
+  background-color: #345cbe;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  margin: 2rem;
+  width: 70%;
 }
-
-
-
 
 /* --------------------- */
 /* --- Media Queries --- */
@@ -147,13 +142,9 @@ header {
 @media (min-width: 361px) {
 }
 
-
-
-
 /* DESKTOP */
 @media (min-width: 769px) {
-
-/* --- Header Css Desktop --- */
+  /* --- Header Css Desktop --- */
 
   .menu_icon,
   .search-bar_mobile_icon {
@@ -228,16 +219,13 @@ header {
     margin: 2rem;
   }
 
-/* --- Register Css Desktop --- */
+  /* --- Register Css Desktop --- */
 
-.register_form{
-  
+  .register_form {
     max-width: 40rem;
     margin: 5rem auto;
     border: solid 0.2rem #345cbe;
     border-radius: 3rem;
     overflow: hidden;
-}
-
-
+  }
 }
