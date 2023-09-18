@@ -1,0 +1,243 @@
+html {
+  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+a:visited {
+  color: initial;
+}
+
+
+/* --- Header Css --- */
+
+header {
+  /* position: fixed; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #04d6c8, #345cbe);
+  width: 100vw;
+  height: fit-content;
+  padding: 1rem 3rem;
+}
+
+.menu_icon {
+  background-color: #345cbe;
+  color: #fcfcfc;
+  font-size: 2rem;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.logo_container {
+  width: fit-content;
+}
+.logo_img {
+  width: 8rem;
+}
+
+.search-bar_mobile_icon {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fcfcfc;
+  color: #345cbe;
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.search-bar_mobile {
+  display: none;
+  width: 0;
+  overflow: hidden;
+}
+
+.search_nav_container,
+.user_nav-bar {
+  display: none;
+}
+
+/* --- Register Css --- */
+
+
+.register_form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
+.register_title{
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.register_form_section{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+}
+.register_form_section:nth-last-child(2){
+    flex-direction: row; 
+    align-items: center;
+}
+
+.register_form_label,
+.register_terms_check_label{
+    font-size: 1.5rem;
+    color: #183234;
+    margin: 0.5rem 0;
+}
+
+.register_form_input{
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: solid 0.1rem #183234;
+    border-radius: 1rem;
+}
+
+.register_terms_check{
+    margin: 1rem;
+}
+
+.register_form_btn{
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin: 2rem;
+    width: 70%;
+}
+
+
+
+
+/* --------------------- */
+/* --- Media Queries --- */
+/* --------------------- */
+
+/* TABLET */
+@media (min-width: 361px) {
+}
+
+
+
+
+/* DESKTOP */
+@media (min-width: 769px) {
+
+/* --- Header Css Desktop --- */
+
+  .menu_icon,
+  .search-bar_mobile_icon {
+    display: none;
+  }
+
+  header {
+    justify-content: space-evenly;
+    padding: 1rem 0;
+  }
+
+  .search_nav_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+  }
+  .main_nav-bar {
+    display: flex;
+  }
+
+  .main_nav-bar_list {
+    list-style: none;
+    display: flex;
+    background-color: #fcfcfc;
+    color: #183234;
+    font-size: 1.5rem;
+    font-weight: 300;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+  }
+
+  .main_nav-bar_item {
+    margin: 0 1rem;
+  }
+  .main_nav-bar_brand_list {
+    list-style: none;
+    display: none;
+  }
+  .search-bar_desktop {
+    display: flex;
+    border-radius: 2rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .search-bar_desktop_input {
+    border: none;
+    background-color: #fcfcfc;
+    font-size: 1.5rem;
+    height: 3rem;
+  }
+  .search-bar_desktop_btn {
+    border: none;
+    background-color: #fcfcfc;
+    color: #183234;
+    font-size: 2rem;
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .user_nav-bar {
+    display: flex;
+  }
+
+  .user_account a,
+  .user_likes a,
+  .user_cart a {
+    color: #fcfcfc;
+    font-size: 2.5rem;
+    margin: 2rem;
+  }
+
+/* --- Register Css Desktop --- */
+
+.register_form{
+  
+    max-width: 40rem;
+    margin: 5rem auto;
+    border: solid 0.2rem #345cbe;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+
+
+}
