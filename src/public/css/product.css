@@ -115,6 +115,16 @@ h4{
 
 /* Media Queries */
 
-@media (min-width: 769px){
+@media (min-width: 361px){
+    .detail-section{
+        max-width: 400px;
     }
+}
 
+
+@media (min-width: 769px){
+    .detail-section{
+        flex-direction: row;
+        max-width: 600px;
+    }
+}

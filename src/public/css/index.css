@@ -1,7 +1,9 @@
-
-
+.img-banner{
+width: 100%;
+}
 .main-home{
     background: linear-gradient(135deg, #04d6c8, #345cbe);
+    padding-bottom: 3em;
 }
 .title{
     font-size: 24px;
@@ -36,7 +38,7 @@
 .favourite-icon-box{
     position: relative;
 }
-.favourite-icon-box .fa-heart{
+.favourite-icon-box .favourite-icon{
     font-size: 32px;
     position: absolute;
     right: 0px;
