@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/headerfooter.css">
-    <link rel="stylesheet" href= "/css/productDetail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href= "/css/product.css"> 
+    <link rel="stylesheet" href= "/css/headerfooter.css">
     <title>Detalle del Producto</title>
 </head>
 <body>
@@ -97,42 +101,58 @@
         </form>
     </header>
     
-    <main class = "main-detail">
-      <div class="detail-item">
-        <img src="/img/pelota-topper.png" alt="Pelota Topper" class="product-img">
-        <div class="description-box">
-          <div class="favourite-icon-box">
-            <i class="fa-regular fa-heart"></i>
+    <main class="main-detail">
+      <h4>Inicio>Marcas>Topper>Futbol</h4>
+      <section class="img-container">
+        <section class="detail-section">
+          <img src="/img/pelota-topper.png" class="product-img" alt="product-img">
+          <div class="favourite-icon">
+            <i class="far fa-heart fa-3x "></i>
           </div>
+          <div class="dots-icon">
+            <i class="fas fa-ellipsis-h fa-5x"></i>
+          </div>
+          <div class="share-icon">
+            <i class="fas fa-share-alt fa-2x"></i>
+          </div>
+          <div class="title-box">
+            
+            <p class="title-text">Pelota Topper Retro || Campo"</p>
+            <p class="price">$18,999,00</p>
+            <p class="card-text">3 cuotas sin interes</p>
+            <p class="bottom-text">17u.</p>
+          </div>
+
+          <div class="counter">  
+            <button class="decrease">-</button>
+            <span class="value">0</span>
+            <button class="increase">+</button>
+          </div>
+
+          <button class="add-to-cart">AGREGAR AL CARRITO</button>
+        
+        </section>
+      </section>
+
+      <hr class="divider">
+      <div class="description-box">
+        <div class="arrow-up">
+          <i class="fas fa-chevron-up fa-2x"></i>
         </div>
-        <h2 class="titles">Pelota Topper Retro || Campo</h2>
-        <h2 class="price">$18,999</h2>
-        <h4>3 CUOTAS SIN INTERÉS</h4>
-        <h3>17u.</h3>
+        <h2>Descripción</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem esse corporis odit veniam quia vero impedit dolorem minima eos itaque sed rerum, iste quam. Magni praesentium vero laboriosam error animi!</p>  
       </div>
       
-      <div class="description-box-detail">
-        <h2 class="titles">Descripción</h2>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.Excepturi consequuntur nesciunt perferendis sequi quasi praesentium error asperiores obcaecati qui libero enim at vitae aperiam laboriosam porro velit, cumque dolorum eveniet!
-        </p>
+      <hr class="divider">
+      <div class="specifications-box">
+        <div class="arrow-up">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <h2>Especificaciones</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem esse corporis odit veniam quia vero impedit dolorem minima eos itaque sed rerum, iste quam. Magni praesentium vero laboriosam error animi!</p>  
       </div>
-
-      
-        <h2 class="titles">Especificaciones</h2>
-        <div class="especifications-box-detail">
-          <h7>Atributos del Producto</h7>
-          <ul>
-              <li>Género</li>
-              <li>Edad</li>
-              <li>Marca</li>
-              <li>Disciplina</li>
-              <li>Color Predominante</li>
-              <li>Material</li>
-          </ul>
-      </div>
-
-
     </main>
+
     <footer>
       <div class="footer-section footer-section-fill-width">
         <h4>REDES SOCIALES</h4>
