@@ -73,12 +73,12 @@ header {
 
 main {
   font-size: 1.6rem;
-  padding: 2rem;
-  background-color: #fff; /* Fondo blanco */
-  border: 1px solid #e0e0e0; /* Borde gris claro */
-  border-radius: 1rem;
-  margin: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 3rem;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 5rem;
+  margin: 5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 h1, h2 {
   color: #333; /* Color del texto principal */
@@ -157,13 +157,26 @@ h1, h2 {
   width: 40px;
   text-align: center;
 }
-
+.quantity-btn{
+  cursor: pointer;
+    transition: background-color 0.3s;
+}
+.quantity-btn:hover{
+  background-color: rgb(52, 92, 190);
+}
 .cart-items img {
   max-width: 100%; /* Establece un ancho máximo del 100% */
   max-height: 200px; /* Establece una altura máxima de 200px (ajusta según sea necesario) */
   height: auto; /* Permite que la altura se ajuste automáticamente */
   margin-bottom: 10px; /* Agrega espacio entre las imágenes */
   
+}
+.cart-items img {
+  transition: transform 0.3s; /* Agrega una transición suave a la propiedad transform */
+}
+
+.cart-items img:hover {
+  transform: scale(1.1); /* Escala la imagen al 110% de su tamaño original al pasar el mouse */
 }
 
 .remove-btn {
@@ -178,10 +191,12 @@ h1, h2 {
   position: absolute;
   top: 0;
   right: 0;
+  transition: transform 0.3s;
 }
 
 .remove-btn:hover {
-  background-color: #921102; /* Cambia el color de fondo al pasar el mouse por encima */
+  background-color: rgb(52, 92, 190); 
+  transform: scale(1.1);
 }
 
 .cart-total {
@@ -208,6 +223,7 @@ h1, h2 {
 }
 .checkout-button:hover {
   background-color: rgb(4, 215, 210);
+  
 }
 
  footer   {
@@ -221,7 +237,10 @@ h1, h2 {
       bottom: 0;
   }
   .footer-section {
-      margin-bottom: 20px;
+      flex: 1;
+     text-align: center;
+     margin-bottom: 20px;
+     padding: 0 1rem;
   }
   
   .footer-section h4 {
@@ -240,7 +259,7 @@ h1, h2 {
       margin-bottom: 10px; 
       color: #fff; }
       
-a{
+.footer-section a{
   font-size: 14px;
   color: #fff;
   text-align: center;
@@ -255,29 +274,47 @@ a{
 .redes-sociales i {
   margin-bottom: 0.5rem; /* Espacio entre el ícono y el texto */
 }
+.redes-sociales p{
+  margin: 5px 0;
+}
 .facebook,.instagram,.twitter,.youtube{display: flex;}
 
-
-/* Estilos para la sección de información de contacto en el footer */
 .Contacto {
   display: flex;
-  flex-direction: column; /* Cambia la dirección del flujo a vertical */
-  align-items: center; /* Alinea horizontalmente los íconos y el texto */
-  text-align: center; /* Alinea el texto al centro */
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
 }
 
 .Contacto i {
-  margin-bottom: 0.5rem; /* Espacio entre el ícono y el texto */
+  margin-bottom: 0.5rem; 
+}
+.Contacto p{
+  margin: 5px 0;
 }
 .direccion,.whatsapp,.telefono,.mail{
   display: flex;
 }
+.Sitios a, .Ayuda a {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  margin: 5px 0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.Sitios a:hover, .Ayuda a:hover {
+  color: #04d6c8;
+}
+
 @media (min-width: 361px) {
 }
 
 /* DESKTOP */
 @media (min-width: 769px) {
-  /* --- Header Css Desktop --- */
+
 
   .menu_icon,
   .search-bar_mobile_icon {
