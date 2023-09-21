@@ -17,3 +17,9 @@ En "El Pelotero", brindamos una extensa selección de pelotas de primera calidad
 * Montero Sport: https://monterosport.com.ar/ De esta pagina tomamos como referencia la disposicion de los productos en el "carrito"
 * Mir Fitness: https://mirfitness.com.ar/ De esta pagina tomamos como referencia su apartado de Registro y LogIn
 * Molten: https://www.molten.com.ar/ De esta pagina tomamos como referencia el apartado en categorias para los distintos productos
+
+### Tablero de Trabajo
+
+Armamos un tablero de trabajo para organizar las tareas en Trello. 
+
+[Link al Tablero.](https://trello.com/b/pke50MBH/proyecto-integrador)
