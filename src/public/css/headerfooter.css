@@ -20,9 +20,6 @@ a {
     text-decoration: none;
     color: initial;
 }
-a:visited {
-    color: initial;
-}
 
 
 /* --- Header Css --- */
