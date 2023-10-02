@@ -10,16 +10,16 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'views/index.html'));
 });
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/views/register.html');
+    res.sendFile(__dirname + '/views/users/register.html');
 });
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/views/login.html');
+    res.sendFile(__dirname + '/views/users/login.html');
 });
 app.get('/product', (req, res) => {
-    res.sendFile(__dirname + '/views/product.html');
+    res.sendFile(__dirname + '/views/products/product.html');
 });
 app.get('/cart', (req, res) => {
-    res.sendFile(__dirname + '/views/cart.html');
+    res.sendFile(__dirname + '/views/products/cart.html');
 });
 app.post('/register', (req, res) => {
     res.redirect('/');
