@@ -4,22 +4,25 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3010;
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'views/index.html'));
+    res.render('index');
 });
 app.get('/register', (req, res) => {
-    res.sendFile(__dirname + '/views/users/register.html');
+    res.render('users/register');
 });
 app.get('/login', (req, res) => {
-    res.sendFile(__dirname + '/views/users/login.html');
+    res.render('users/login');
 });
 app.get('/product', (req, res) => {
-    res.sendFile(__dirname + '/views/products/product.html');
+    res.render('products/product');
 });
 app.get('/cart', (req, res) => {
-    res.sendFile(__dirname + '/views/products/cart.html');
+    res.render('products/cart');
 });
 app.post('/register', (req, res) => {
     res.redirect('/');
