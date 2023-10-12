@@ -11,4 +11,5 @@
     <% locals.styles&&styles.forEach(style=>{%>
         <link rel="stylesheet" href="/css/<%=style%>.css" />
     <% }) %>
+    <title><%= locals.title && (title+' - ') %>El Pelotero</title>
   </head>
