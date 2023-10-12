@@ -1,0 +1,91 @@
+<%- include('../partials/head', {styles:['product', 'headerfooter']}) %>
+<title>Detalle del producto</title>
+<body>
+  
+  <%- include('../partials/header') %>
+    
+    <main class="main-detail">
+      <h4>Inicio>Marcas>Topper>Futbol</h4>
+      <section class="img-container">
+        <section class="detail-section">
+          <div>
+            <img src="/img/pelota-topper.png" class="product-img" alt="product-img">
+            <div class="favourite-icon">
+              <i class="far fa-heart fa-3x "></i>
+            </div>
+            <div class="dots-icon">
+              <i class="fas fa-ellipsis-h fa-5x"></i>
+            </div>
+          </div>
+          <div>
+            <div class="share-icon">
+              <i class="fas fa-share-alt fa-2x"></i>
+            </div>
+            <div class="title-box">
+              
+              <p class="title-text">Pelota Topper Retro || Campo"</p>
+              <p class="price">$18,999,00</p>
+              <p class="card-text">3 cuotas sin interes</p>
+              <p class="bottom-text">17u.</p>
+            </div>
+  
+            <div class="counter">  
+              <button class="decrease">-</button>
+              <span class="value">0</span>
+              <button class="increase">+</button>
+            </div>
+  
+            <button class="add-to-cart">AGREGAR AL CARRITO</button>
+          </div>
+        
+        </section>
+      </section>
+      <hr class="divider">
+      <div class="description-box">
+        <div class="arrow-up">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <h2 class="description-title">Descripción</h2>
+        <p>Basada en el diseño de la pelota usada en el máximo torneo internacional de fútbol en Argentina en 1978, la pelota Tango Rosario es un ícono. Cosida a mano para una máxima durabilidad y un toque preciso, esta pelota de entrenamiento cumple con los estándares exigidos por la FIFA y tiene una cámara de butilo moldeado por inyección y una superficie de poliuretano.</p>  
+      </div>
+      
+      <hr class="divider">
+      <div class="specifications-box">
+        <div class="arrow-up">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </div>
+        <h2 class="description-title">Especificaciones</h2>
+        <table class="specifications-table">
+          <tbody>
+            <tr>
+              <td>Genero</td>
+              <td>Hombre - Mujer - Unisex</td>
+            </tr>
+            <tr>
+              <td>Edad</td>
+              <td>Adulto - Juvenil - Niño</td>
+            </tr>
+            <tr>
+              <td>Marca</td>
+              <td>Topper</td>
+            </tr>
+            <tr>
+              <td>Disciplina</td>
+              <td>Fútbol</td>
+            </tr>
+            <tr>
+              <td>Color Predominante</td>
+              <td>Blanco</td>
+            </tr>
+            <tr>
+              <td>Material</td>
+              <td>Cuero Sintético</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
