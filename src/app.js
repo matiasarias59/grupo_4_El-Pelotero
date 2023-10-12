@@ -30,6 +30,9 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
     res.redirect('/');
 });
+app.get('/createProduct', (req,res) => {
+    res.render('products/createProduct');
+});
 app.get('*', (req, res) => {
     res.status(404).send('Página no encontrada');
 });

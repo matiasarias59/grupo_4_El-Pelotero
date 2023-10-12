@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('../partials/head', {styles:['createProduct', 'headerfooter'], title: 'CrearProducto'}) %>
+<body>
+    <%- include('../partials/header') %>
+	<div class="containerForm">
+		<div class="row">
+			<div class="formTitle">
+				<h1 class="products-title">Crear Producto</h2>
+			</div>
+		</div>
+		<div class="formCreateP">
+			<form action="¿?" method="___">
+				<div class="rowFormP">
+					<div class="formName">
+						<label for="name" class="form-label">Nombre del producto:</label>
+						<input type="text" id="name" name="name" placeholder="Ej: Pelota Topper Retro II Campo" class="form-input">
+					</div>
+					<div class="formPrice">
+						<label for="price" class="form-label">Precio del producto:</label>
+						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+					</div>
+					<div class="formDisc">
+						<label for="discount" class="form-label">Descuento:</label>
+						<input type="text" id="discount" name="discount" placeholder="Ej: 15" class="form-input">
+					</div>
+					<div class="formCat">
+						<label for="category" class="form-label">Categoría:</label>
+						<select name="category" id="category" class="form-input">
+							<option value="">Elegí</option>
+							<option value="in-sale">En oferta</option>
+							<option value="visited">Últimos agregados</option>
+						</select>
+					</div>
+					<div class="formDescription">
+						<label for="description" class="form-label">Descipción:</label>
+						<textarea name="description" id="description" class="form-input"></textarea>
+					</div>
+					<div class="formCreateButton">
+						<button type="submit" class="buy-now-button">Guardar producto</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+    <%- include('../partials/footer') %>
+</body>	
+</html>
