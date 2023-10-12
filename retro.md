@@ -14,3 +14,19 @@
 
 #### Qué debemos continuar haciendo 
 - Ayudarnos mutuamente.
+
+
+## Sprint 3
+
+#### Qué hicimos bien?
+- Supimos comenzar a trabajar con branches
+- Pudimos ayudarnos con bloqueos en algunas tareas 
+
+#### Qué debemos mejorar?
+- Reuniones más seguido.
+- Debemos mejorar el flujo de trabajo con Git/Github
+
+#### Qué debemos continuar haciendo 
+- Ayudarnos mutuamente
+- Profundizar en el uso de Git
+ 
