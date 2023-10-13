@@ -1,0 +1,68 @@
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.products-title{
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.formCreateP{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 10vw;
+    flex-wrap: wrap;
+    margin-bottom: 3rem
+}
+.form-label {
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 10px 0;
+  }
+  
+  .form-input {
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        border: solid 0.1rem #183234;
+        border-radius: 1rem;
+        width: 100%;
+    }
+    button.buy-now-button {
+        border: none;
+        border-radius: 1.5rem;
+        text-align: center;
+        color: #fcfcfc;
+        background-color: #345cbe;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 1rem 0;
+        margin: 1rem 15%;
+        width: 70%;
+    }
+  textarea.form-input {
+    min-height: 140px;
+    resize: vertical;
+    padding: 15px;
+  }
+
+  @media (min-width: 769px){
+ .containerForm {
+    width: 40rem;
+    margin: 5rem auto;
+    border: solid 0.2rem #345cbe;
+    border-radius: 3rem;
+    overflow: hidden;
+}
+.formCreateP{ 
+        padding: 0 10%;
+}
+  }
