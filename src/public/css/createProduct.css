@@ -2,9 +2,26 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     width: 100vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.products-title{
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.formCreateP{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 10vw;
+    flex-wrap: wrap;
+    margin-bottom: 3rem
 }
 .form-label {
     display: inline-block;
@@ -13,17 +30,24 @@
   }
   
   .form-input {
-    display: block;
-    width: 100%;
-    height: 45px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    border-radius: 8px;
-    border: none;
-    border: solid 1px var(--gray);
-    padding: 0 15px;
-  }
-  
+        font-size: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        border: solid 0.1rem #183234;
+        border-radius: 1rem;
+        width: 100%;
+    }
+    button.buy-now-button {
+        border: none;
+        border-radius: 1.5rem;
+        text-align: center;
+        color: #fcfcfc;
+        background-color: #345cbe;
+        font-size: 2rem;
+        font-weight: 400;
+        padding: 1rem 0;
+        margin: 1rem 15%;
+        width: 70%;
+    }
   textarea.form-input {
     min-height: 140px;
     resize: vertical;
@@ -37,17 +61,8 @@
     border: solid 0.2rem #345cbe;
     border-radius: 3rem;
     overflow: hidden;
-}}
-
-button.buy-now-button {
-    border: none;
-    border-radius: 1.5rem;
-    text-align: center;
-    color: #fcfcfc;
-    background-color: #345cbe;
-    font-size: 2rem;
-    font-weight: 400;
-    padding: 1rem 0;
-    margin: 1rem 15%;
-    width: 70%;
 }
+.formCreateP{ 
+        padding: 0 10%;
+}
+  }
