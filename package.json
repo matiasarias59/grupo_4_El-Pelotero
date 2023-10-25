@@ -4,7 +4,7 @@
   "description": "En \"El Pelotero\", brindamos una extensa selección de pelotas de primera calidad para deportes como fútbol, baloncesto, vóley, tenis y más. Nuestro público abarca desde entusiastas ocasionales hasta competidores serios. Nos destacamos por ofrecer un servicio ágil, precios competitivos.",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --ignore src/data/*.json src/app.js",
+    "dev": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
