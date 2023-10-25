@@ -51,8 +51,15 @@
     padding: 1rem 0;
     margin: 1rem 15%;
     width: 70%;
+    cursor: pointer;
 }
-
+.register {
+    margin-top: 5px;
+    font-size: 14px;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+}
 
 /* .link-register a:visited {
     color: #fcfcfc;
