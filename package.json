@@ -13,12 +13,15 @@
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "method-override": "^3.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
   "nodemonConfig": {
-    "ignore": ["src/data/*.json"]
+    "ignore": [
+      "src/data/*.json"
+    ]
   }
 }
