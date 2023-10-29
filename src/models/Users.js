@@ -48,9 +48,21 @@ const User = {
 
     },
 
+    destroyAvatar: function (id) {
+
+        const user = this.findById(id);
+        
+       if(!user.avatar){
+            return false
+        }
+        fs.rmSync(path.join(__dirname,'../public/img/users',user.avatar));
+        return true;
+    },
+
     delete: function (id) {
 
         const allUsers = this.findAll();
+        this.destroyAvatar(id);
         const index = allUsers.findIndex(user => user.id == id)
         allUsers.splice(index, 1);
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, 2) )

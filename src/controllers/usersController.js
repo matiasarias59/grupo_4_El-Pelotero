@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+const User = require('../models/Users');
+
+const {validationResult} = require('express-validator');
 
 
 const controller = {
@@ -19,9 +20,25 @@ const controller = {
     },
 
     registerProcess: (req, res) => {
-        console.log(req.body);
-        console.log(req.file)
-        res.send(req.file)
+
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+          return res.render("./users/register", {
+            errors: errors.mapped(),
+            oldData: req.body,
+          });
+        }
+
+        const newUser = {
+            ...req.body,
+            avatar: req.file.filename
+        }
+
+        User.create(newUser);
+
+        res.redirect('/');
+        //console.log(req)
+       // res.send(req.body)
 
     },
 
