@@ -5,6 +5,9 @@
     width: 100vw;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+.form-box {
+  margin: 0 auto;
+}
 .products-title{
     text-align: center;
     color: #fcfcfc;
@@ -15,13 +18,13 @@
     margin-bottom: 2rem;
     width: 100%;
 }
-.formCreateP{
+.formCreateP {
     display: flex;
     flex-direction: row;
     width: 100%;
     padding: 0 10vw;
     flex-wrap: wrap;
-    margin-bottom: 3rem
+    margin-bottom: 3rem;
 }
 .form-label {
     display: inline-block;
@@ -45,14 +48,32 @@
         font-size: 2rem;
         font-weight: 400;
         padding: 1rem 0;
-        margin: 1rem 15%;
+        margin: 2rem 15%;
         width: 70%;
+        cursor: pointer;
     }
   textarea.form-input {
     min-height: 140px;
     resize: vertical;
     padding: 15px;
   }
+
+  .formDeleteButton {
+    width: 100%;
+  }
+  .delete-button {
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #d43333;
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 1.2rem 0;
+    width: 50%;
+    margin: 2rem 25% 0 25%;
+    cursor: pointer;
+}
 
   @media (min-width: 769px){
  .containerForm {

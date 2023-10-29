@@ -1,12 +1,18 @@
-<%- include('partials/head', {styles:['index', 'headerfooter']}) %>
+<%- include('../partials/head', {styles:['allProducts', 'headerfooter']}) %>
   <body>
-    <%- include('./partials/header') %>
+    <%- include('../partials/header') %>
     <main class="main-home">
-      <img src="/img/banner.jpg" class="img-banner" alt="banner" />
       <section class="home-section">
-        <h2 class="title">PRODUCTOS DESTACADOS</h2>
+        <div class="title-section">
+          <h2 class="title">LISTADO DE PRODUCTOS</h2>
+          <a href="/products/create">
+            <div class="add-product">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+          </a>
+        </div>
         <div class="product">
-        <% locals.products && products.filter(prod => prod.category == 'relevant').forEach(product => { %>
+        <% locals.products && products.forEach(product => { %>
           <article class="article-product">
             <img src="/img/products/<%= product.image %>" class="img-product" alt="img-product" />
             <div class="description-box">
@@ -14,18 +20,16 @@
                 <i class="fa-regular fa-heart favourite-icon"></i>
               </div>
               <p class="description-text"><a href="/products/product-detail"><%= product.name %></a></p>
-              <p class="bottom-text"><%= product.features %></p>
+              <p class="bottom-text"><%= product.brand %></p>
               <p class="price">$<%= new Intl.NumberFormat('es-AR').format(product.price) %></p>
             </div>
             <a href="/products/<%= product.id %>" class="product-link"></a>
           </article>
         <% }) %>
         </div>
-        <div class="button-div">
-          <a href="/products" class="button-show-all">MOSTRAR TODOS</a>
-        </div>
+
       </section>
     </main>
-    <%- include('./partials/footer') %>
+    <%- include('../partials/footer') %>
   </body>
 </html>
