@@ -3,27 +3,47 @@
     <%- include('../partials/header') %>
 
     <main>
-      <form class="register_form" action="/">
+      <form class="register_form" action="/users/register" method="post" enctype="multipart/form-data">
         <h1 class="register_title">CREAR CUENTA</h1>
 
         <div class="register_form_section">
-          <label class="register_form_label" for="register_mail">Correo Electrónico:</label>
-          <input class="register_form_input" type="email" name="register_mail" id="register_mail" required />
+          <label class="register_form_label" for="firstName">Nombre</label>
+          <input class="register_form_input" type="text" name="firstName" id="register_firstName" required />
         </div>
 
         <div class="register_form_section">
-          <label class="register_form_label" for="register_password">Contraseña:</label>
-          <input class="register_form_input" type="password" name="register_password" id="register_password" required />
+          <label class="register_form_label" for="lastName">Apellido</label>
+          <input class="register_form_input" type="text" name="lastName" id="register_lastName" required />
         </div>
 
         <div class="register_form_section">
-          <label class="register_form_label" for="register_confirm_password">Confirmar Contraseña:</label>
-          <input class="register_form_input" type="password" name="register_confirm_password" id="register_confirm_password" required />
+          <label class="register_form_label" for="birthDate">Fecha de Nacimiento</label>
+          <input class="register_form_input" type="date" name="birthDate" id="register_birthDate" required />
+        </div>
+        
+        <div class="register_form_section">
+          <label class="register_form_label" for="avatar">Seleccione Foto de Perfil</label>
+          <input class="register_form_input" type="file" name="avatar" id="register_avatar" required />
         </div>
 
         <div class="register_form_section">
-          <input class="register_terms_check" type="checkbox" name="register_terms_check" id="register_terms_check" required />
-          <label class="register_terms_check_label" for="register_terms_check">Acepto los términos y condiciones</label>
+          <label class="register_form_label" for="mail">Correo Electrónico:</label>
+          <input class="register_form_input" type="email" name="mail" id="register_mail" required />
+        </div>
+
+        <div class="register_form_section">
+          <label class="register_form_label" for="password">Contraseña:</label>
+          <input class="register_form_input" type="password" name="password" id="register_password" required />
+        </div>
+
+        <div class="register_form_section">
+          <label class="register_form_label" for="confirmPassword">Confirmar Contraseña:</label>
+          <input class="register_form_input" type="password" name="confirmPassword" id="register_confirm_password" required />
+        </div>
+
+        <div class="register_form_section">
+          <input class="register_terms_check" type="checkbox" name="termsCheck" id="register_terms_check" required />
+          <label class="register_terms_check_label" for="termsCheck">Acepto los términos y condiciones</label>
         </div>
 
         <button class="register_form_btn" type="submit">Registrarme</button>

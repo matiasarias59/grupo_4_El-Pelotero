@@ -5,6 +5,7 @@ const methodOverride =  require('method-override');
 
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
+const usersRouter = require('./routes/users');
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/', mainRouter);
 app.use('/products', productRouter);
+app.use('/users', usersRouter);
 
 
 const port = 3010;

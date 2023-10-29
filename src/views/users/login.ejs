@@ -7,7 +7,7 @@
     <main class="main-login">
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
-        <form class="login-form" action="/">
+        <form class="login-form" action="/users/login" method="post">
           <label class="label-input-box" for="login-email">Correo Electrónico:</label>
           <input class="input-box" type="email" name="login-email" id="login-email" required>
           <label class="label-input-box" for="login-password">Contraseña:</label>
@@ -15,7 +15,7 @@
           <input type="checkbox" name="remember-me" id="remember-me">
           <label id="label-remember-me" for="remember-me">Recordarme</label>
           <button type="submit" class="login-button">Ingresar</button>
-          <a href="/register" class="register">Registrarme</a>
+          <a href="/users/register" class="register">Registrarme</a>
         </form>
       </div>
     </main>
