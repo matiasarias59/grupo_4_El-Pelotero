@@ -1,4 +1,5 @@
 const User = require('../models/Users');
+const bcrypt = require('bcryptjs');
 
 const {validationResult} = require('express-validator');
 
@@ -31,15 +32,16 @@ const controller = {
 
         const newUser = {
             ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10),
             avatar: req.file.filename
         }
+
+        delete newUser.confirmPassword;
+        delete newUser.termsCheck;
 
         User.create(newUser);
 
         res.redirect('/');
-        //console.log(req)
-       // res.send(req.body)
-
     },
 
 }

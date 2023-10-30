@@ -11,7 +11,7 @@ const createUserValidation = [
     body('birthDate').
     notEmpty().withMessage('El campo Fecha de Nacimiento no puede estar vacio'),
 
-    body('mail').
+    body('email').
     notEmpty().withMessage('El campo email no puede estar vacio').
     isEmail().withMessage('Debes introducir un correo electronico valido'),
 

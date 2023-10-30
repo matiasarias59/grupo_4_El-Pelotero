@@ -10,7 +10,7 @@
           <label class="register_form_label" for="firstName">Nombre</label>
           <input class="register_form_input" type="text" name="firstName" id="register_firstName" value="<%= locals.oldData?.firstName%>" />
           <% if(locals.errors?.firstName){ %>
-            <span><%= locals.errors.firstName.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.firstName.msg %></span>
           <% } %>
         </div>
 
@@ -18,7 +18,7 @@
           <label class="register_form_label" for="lastName">Apellido</label>
           <input class="register_form_input" type="text" name="lastName" id="register_lastName" value="<%= locals.oldData?.lastName%>"  />
           <% if(locals.errors?.lastName){ %>
-            <span><%= locals.errors.lastName.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.lastName.msg %></span>
           <% } %>
         </div>
 
@@ -26,7 +26,7 @@
           <label class="register_form_label" for="birthDate">Fecha de Nacimiento</label>
           <input class="register_form_input" type="date" name="birthDate" id="register_birthDate" value="<%= locals.oldData?.birthDate %>"  />
           <% if(locals.errors?.birthDate){ %>
-            <span><%= locals.errors.birthDate.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.birthDate.msg %></span>
           <% } %>
         </div>
         
@@ -34,15 +34,15 @@
           <label class="register_form_label" for="avatar">Seleccione Foto de Perfil</label>
           <input class="register_form_input" type="file" name="avatar" id="register_avatar" />
           <% if(locals.errors?.avatar){ %>
-            <span><%= locals.errors.avatar.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.avatar.msg %></span>
           <% } %>
         </div>
 
         <div class="register_form_section">
-          <label class="register_form_label" for="mail">Correo Electrónico:</label>
-          <input class="register_form_input" type="email" name="mail" id="register_mail" value="<%= locals.oldData?.mail%>"  />
+          <label class="register_form_label" for="email">Correo Electrónico:</label>
+          <input class="register_form_input" type="email" name="email" id="register_mail" value="<%= locals.oldData?.email%>"  />
           <% if(locals.errors?.email){ %>
-            <span><%= locals.errors.email.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.email.msg %></span>
           <% } %>
         </div>
 
@@ -50,7 +50,7 @@
           <label class="register_form_label" for="password">Contraseña:</label>
           <input class="register_form_input" type="password" name="password" id="register_password" />
           <% if(locals.errors?.password){ %>
-            <span><%= locals.errors.password.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.password.msg %></span>
           <% } %>
         </div>
 
@@ -58,7 +58,7 @@
           <label class="register_form_label" for="confirmPassword">Confirmar Contraseña:</label>
           <input class="register_form_input" type="password" name="confirmPassword" id="register_confirm_password" />
           <% if(locals.errors?.confirmPassword){ %>
-            <span><%= locals.errors.confirmPassword.msg %></span>
+            <span class="form_input_alert"><%= locals.errors.confirmPassword.msg %></span>
           <% } %>
         </div>
 

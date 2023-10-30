@@ -62,17 +62,47 @@ const User = {
     delete: function (id) {
 
         const allUsers = this.findAll();
+
         this.destroyAvatar(id);
+
         const index = allUsers.findIndex(user => user.id == id)
+
         allUsers.splice(index, 1);
+
         fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, 2) )
+
         return true;
         
-    }
+    },
 
+    update: function (userToUpdate) { 
+
+        const allUsers = this.findAll();
+        const index = allUsers.findIndex(user => user.id == userToUpdate.id)
+
+        if(userToUpdate.avatar){
+            this.destroyAvatar(userToUpdate.id);
+        }
+
+        allUsers[index] = {...allUsers[index], ...userToUpdate}
+
+        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, 2) )
+        return true;
+
+    }
 
 }
 
 module.exports = User;
 
-
+User.update(
+{
+    id: 31,
+    firstName: "Matias",
+    lastName: "Arias",
+    birthDate: "1996-03-14",
+    email: "matiasarias59@gmail.com",
+    password: "$2a$10$PCtCrsFp7Se/0ZjwXQzQ6OC5xM3qJ29bUvUXjk9WK48CNEy/PbAgu",
+    avatar: "mati.jpg"
+  }
+)
