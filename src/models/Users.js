@@ -94,15 +94,3 @@ const User = {
 }
 
 module.exports = User;
-
-User.update(
-{
-    id: 31,
-    firstName: "Matias",
-    lastName: "Arias",
-    birthDate: "1996-03-14",
-    email: "matiasarias59@gmail.com",
-    password: "$2a$10$PCtCrsFp7Se/0ZjwXQzQ6OC5xM3qJ29bUvUXjk9WK48CNEy/PbAgu",
-    avatar: "mati.jpg"
-  }
-)
