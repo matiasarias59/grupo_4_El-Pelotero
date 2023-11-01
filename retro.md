@@ -30,3 +30,16 @@
 - Ayudarnos mutuamente
 - Profundizar en el uso de Git
  
+
+ ## Sprint 4
+
+#### Qué hicimos bien?
+- Nos organizamos bien con la division de tareas
+- Avazamos en el uso de Github
+
+#### Qué debemos mejorar?
+- Tenemos que mejorar cuestiones de codigo. Corregir los pequeños detalles antes de que sean grandes problemas. 
+
+#### Qué debemos continuar haciendo 
+- Division de trabajo eficiente
+- Comunicarnos efectivamente 

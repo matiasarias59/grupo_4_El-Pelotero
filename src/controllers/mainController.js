@@ -14,24 +14,24 @@ const controller = {
         res.render('index', { products });
     },
 
-    login: (req, res) => {
+/*     login: (req, res) => {
         res.render('users/login');
-    },
+    }, */
 
-    register: (req, res) => {
+ /*    register: (req, res) => {
         res.render('users/register');
-    },
+    }, */
 
     cart: (req, res) => {
         res.render('users/cart');
     },
 
-    createUser: (req, res) => {
+/*     createUser: (req, res) => {
         res.redirect('/');
-    },
-    loginUser: (req, res) => {
+    }, */
+/*     loginUser: (req, res) => {
         res.redirect('/');
-    }, 
+    },  */
 
 
 };

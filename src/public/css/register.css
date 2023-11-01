@@ -63,6 +63,12 @@
   cursor: pointer;
 }
 
+.form_input_alert{
+  color: #cb0909;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
 /* --------------------- */
 /* --- Media Queries --- */
 /* --------------------- */
