@@ -1,6 +1,10 @@
 
 /* --- Register Css --- */
 
+body {
+  background-color: #ececec;
+}
+
 .register_form {
   display: flex;
   flex-direction: column;
@@ -41,7 +45,7 @@
 .register_form_input {
   font-size: 1.5rem;
   padding: 0.5rem 1.5rem;
-  border: solid 0.1rem #183234;
+  border: 0;
   border-radius: 1rem;
 }
 
@@ -84,8 +88,12 @@
   .register_form {
     max-width: 40rem;
     margin: 5rem auto;
-    border: solid 0.2rem #345cbe;
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
     border-radius: 3rem;
     overflow: hidden;
+    background-color: white;
+  }
+  .register_form_input {
+    border: solid 0.1rem #183234;
   }
 }
