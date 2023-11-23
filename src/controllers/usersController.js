@@ -33,7 +33,7 @@ const controller = {
         const newUser = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password, 10),
-            avatar: req.file.filename
+            avatar: req.file?.filename || 'defaultPic.jpg'
         }
 
         delete newUser.confirmPassword;

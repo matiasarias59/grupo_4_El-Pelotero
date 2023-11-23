@@ -81,8 +81,8 @@ header {
 
 /* Footer Css */
 footer {
-    background-color: #183234;
     color: #fcfcfc;
+    background: linear-gradient(135deg, #04d6c8, #345cbe);
     height: 60vh;
     text-align: center;
     display: flex;
@@ -90,6 +90,7 @@ footer {
     align-content: space-between;
     padding: 3rem 0;
     justify-content: space-evenly;
+    border-top: 0px solid #345cbe;
 }
 .footer-section {
     display: flex;
@@ -101,16 +102,22 @@ footer {
     width: 100%;
 }
 .footer-section h4 {
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.4rem;
 }
 .footer-section a, .footer-section p {
-    color: #fcfcfc;
-    font-weight: 200;
+    color: black;
+    font-weight: 400;
     font-size: 1.2rem;
 }
+.footer-section i {
+    color: #345cbe;
+}
+.footer-section a {
+    color: #345cbe;
+}
 .footer-section a:visited {
-    color: #fcfcfc;
+    color: #345cbe;
 }
 .footer-section ul {
     display: flex;
@@ -216,6 +223,12 @@ footer {
     }
     .footer-cr {
         width: 100%;
+    }
+    .footer-section h4 {
+      font-size: 1.8rem;
+    }
+    .footer-section a, .footer-section p {
+        font-size: 1.4rem;
     }
 }
 
