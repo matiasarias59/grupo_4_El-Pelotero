@@ -1,5 +1,9 @@
 /* Login */
 
+body {
+    background-color: #ececec;
+}
+
 .login-heading {
     text-align: center;
     color: #fcfcfc;
@@ -21,7 +25,7 @@
 .input-box {
     font-size: 1.5rem;
     padding: 0.5rem 1.5rem;
-    border: solid 0.1rem #183234;
+    border: 0;
     border-radius: 1rem;
     width: 100%;
 }
@@ -74,12 +78,16 @@
     .login {
         width: 40rem;
         margin: 5rem auto;
-        border: solid 0.2rem #345cbe;
         border-radius: 3rem;
         overflow: hidden;
+        box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
+        background-color: white;
     }
     .login-form {
         padding: 0 10%;
+    }
+    .input-box {
+        border: solid 0.1rem #183234;
     }
 }
 /* End Media Queries */

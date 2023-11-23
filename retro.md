@@ -31,7 +31,7 @@
 - Profundizar en el uso de Git
  
 
- ## Sprint 4
+## Sprint 4
 
 #### Qué hicimos bien?
 - Nos organizamos bien con la division de tareas
@@ -43,3 +43,17 @@
 #### Qué debemos continuar haciendo 
 - Division de trabajo eficiente
 - Comunicarnos efectivamente 
+
+
+## Sprint 5
+
+#### Qué hicimos bien?
+- Mejoramos visualmente las vistas
+
+#### Qué debemos mejorar?
+- Los tiempos en completar tareas
+- La estructura del proyecto en git
+
+#### Qué debemos continuar haciendo 
+- Ayudarnos mutuamente
+- Division de trabajo eficiente
