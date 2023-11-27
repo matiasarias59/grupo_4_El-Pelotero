@@ -206,7 +206,8 @@ footer {
   
     .user_account a,
     .user_likes a,
-    .user_cart a {
+    .user_cart a,
+    .user_logout a {
       color: #fcfcfc;
       font-size: 2.5rem;
       margin: 2rem;

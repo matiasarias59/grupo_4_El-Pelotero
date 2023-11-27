@@ -1,21 +1,14 @@
 const User = require('../models/Users');
+const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
 const {validationResult} = require('express-validator');
-
+const Users = require ('../models/Users')
 
 const controller = {
 
-    login: (req, res) => {
-        res.render('./users/login');
-    },
-
-    loginProcess: (req, res) => {
-        res.redirect('/');
-    }, 
-
     register: (req, res) => {
-      
+
         res.render('./users/register');
         
     },
@@ -43,7 +36,41 @@ const controller = {
 
         res.redirect('/');
     },
+   
+    
+    login: (req, res) => {
+        res.render('./users/login');
+    },
+    
+    loginProcess: (req, res) => {
+        const userToLogin = User.findByField('email', req.body.email);
 
+        if (userToLogin) {
+           const isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
+            if (isOkThePassword) {
+                delete userToLogin.password;
+                req.session.userLogged = userToLogin;
+                if(req.body.remember-me){
+                    res.cookie('userEmail', req.body.email, {maxAge: (1000*60) *2});
+                }
+                return res.redirect('/');
+            }
+            return res.render('/users/login', {
+                errors: {
+                    email: {
+                        msg: 'Las credenciales son inválidas'
+                    }
+                }
+            });
+        }
+        console.log(req.session);
+    },
+
+logout : (req,res)=> {
+    req.session.destroy()
+    return res.redirect('/')
 }
+
+};
 
 module.exports = controller;
