@@ -286,5 +286,14 @@
     "email": "joelbonus@hotmail.com",
     "password": "$2a$10$U5ON8nywmNyf0e./3Ul8euqRLKpOXp75UnXH.XNMHzvtUAub5SjL.",
     "avatar": "defaultPic.jpg"
+  },
+  {
+    "id": 33,
+    "firstName": "Matias",
+    "lastName": "Arias",
+    "birthDate": "1996-03-14",
+    "email": "matiasarias59@gmail.com",
+    "password": "$2a$10$.QZrRdc1Hyhu0F50G1dgHeV.sC9zGcEsSA3q17ahRKl6TK6tfAZgm",
+    "avatar": "defaultPic.jpg"
   }
 ]

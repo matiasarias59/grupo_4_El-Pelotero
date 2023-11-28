@@ -1,0 +1,25 @@
+<%- include('../partials/head', {styles:['login', 'headerfooter'], title: 'Ingresar'}) %>
+
+<body>
+  
+  <%- include('../partials/header') %>
+
+    <main class="main-login">
+      <div class="login">
+        <h1 class="login-heading">MI CUENTA</h1>
+        
+        <div>
+            <img src="img/users/<%=locals.user.avatar%>" alt="" srcset="">
+        </div>
+       <div>
+        <p>Nombre: <%= locals.user.firstName %></p>
+        <p>Apellido: <%= locals.user.lastName %></p>
+        <p>Fecha de Nacimiento: <%= locals.user.birthDate %></p>
+        <p>Email: <%= locals.user.email %></p>
+       </div>
+
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

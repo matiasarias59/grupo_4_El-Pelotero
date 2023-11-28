@@ -15,9 +15,9 @@ const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
 
 app.use(session({
-    secret: 'El Pelotero',
-    resave: false,
-    saveUninitialized:false,
+    secret: 'Pelotero',
+   /*  resave: false,
+    saveUninitialized:false, */
 }));
 app.use(userLoggedMiddleware);
 app.use(cookies());

@@ -13,10 +13,12 @@ router.get('/login', guestMiddleware, usersController.login);
 
 router.post('/login', usersController.loginProcess);
 
-router.get('/logout', usersController.logout);
+router.get('/logout', authMiddleware, usersController.logout);
 
 router.get('/register',guestMiddleware, usersController.register);
 
 router.post('/register', upload.single('avatar'), createUserValidation, usersController.registerProcess);
+
+router.get('/account', authMiddleware, usersController.account);
 
 module.exports = router;

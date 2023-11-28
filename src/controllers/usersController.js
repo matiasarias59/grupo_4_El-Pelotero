@@ -3,7 +3,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
 const {validationResult} = require('express-validator');
-const Users = require ('../models/Users')
+//const Users = require ('../models/Users')
 
 const controller = {
 
@@ -43,19 +43,20 @@ const controller = {
     },
     
     loginProcess: (req, res) => {
+
         const userToLogin = User.findByField('email', req.body.email);
 
         if (userToLogin) {
            const isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
             if (isOkThePassword) {
                 delete userToLogin.password;
-                req.session.userLogged = userToLogin;
-                if(req.body.remember-me){
+                req.session.userLogged = {...userToLogin};
+                if(req.body.remember_me){
                     res.cookie('userEmail', req.body.email, {maxAge: (1000*60) *2});
                 }
                 return res.redirect('/');
             }
-            return res.render('/users/login', {
+            return res.render('./users/login', {
                 errors: {
                     email: {
                         msg: 'Las credenciales son inválidas'
@@ -69,6 +70,12 @@ const controller = {
 logout : (req,res)=> {
     req.session.destroy()
     return res.redirect('/')
+},
+
+account : (req,res)=> {
+    const user = {...req.session.userLogged}
+    return res.render('./users/account', {user});
+
 }
 
 };

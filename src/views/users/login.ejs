@@ -8,17 +8,17 @@
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
         <form class="login-form" action="/users/login" method="post">
-          <label class="label-input-box" for="login-email">Correo Electrónico:</label>
-          <input class="input-box" type="email" name="login-email" id="login-email" required>
+          <label class="label-input-box" for="email">Correo Electrónico:</label>
+          <input class="input-box" type="email" name="email" id="login-email" required>
           <% if (locals.errors && errors.email) { %>
             <div class ="text-danger">
               <% errors.email.msg %>
             </div>
           <% } %>
-          <label class="label-input-box" for="login-password">Contraseña:</label>
-          <input class="input-box" type="password" name="login-password" id="login-password" required>
-          <input type="checkbox" name="remember-me" id="remember-me">
-          <label id="label-remember-me" for="remember-me">Recordarme</label>
+          <label class="label-input-box" for="password">Contraseña:</label>
+          <input class="input-box" type="password" name="password" id="login-password" required>
+          <input type="checkbox" name="remember_me" id="remember-me">
+          <label id="label-remember-me" for="remember_me">Recordarme</label>
           <button type="submit" class="login-button">Ingresar</button>
           <a href="/users/register" class="register">Registrarme</a>
         </form>
