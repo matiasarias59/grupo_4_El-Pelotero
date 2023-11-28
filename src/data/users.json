@@ -268,5 +268,32 @@
     "password": "uW7>s~/KU)'=#Kit",
     "avatar": "avatar2.jpg",
     "birthDate": "17/08/2007"
+  },
+  {
+    "id": 31,
+    "firstName": "Joel",
+    "lastName": "Bonus",
+    "birthDate": "1992-07-07",
+    "email": "joelsbonus@gmail.com",
+    "password": "$2a$10$ABvfcTM5I2Bmc0WQ1k9H0uvVjSfXR7U6cukO81gyns6N8GCEQ0KwW",
+    "avatar": "defaultPic.jpg"
+  },
+  {
+    "id": 32,
+    "firstName": "Joel",
+    "lastName": "Bonus",
+    "birthDate": "1992-07-07",
+    "email": "joelbonus@hotmail.com",
+    "password": "$2a$10$U5ON8nywmNyf0e./3Ul8euqRLKpOXp75UnXH.XNMHzvtUAub5SjL.",
+    "avatar": "defaultPic.jpg"
+  },
+  {
+    "id": 33,
+    "firstName": "Matias",
+    "lastName": "Arias",
+    "birthDate": "1996-03-14",
+    "email": "matiasarias59@gmail.com",
+    "password": "$2a$10$.QZrRdc1Hyhu0F50G1dgHeV.sC9zGcEsSA3q17ahRKl6TK6tfAZgm",
+    "avatar": "defaultPic.jpg"
   }
 ]

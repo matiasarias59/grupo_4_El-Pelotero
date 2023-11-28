@@ -2,12 +2,25 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const methodOverride =  require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
 
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
+const authMiddleware = require('./middlewares/authMiddleware');
+const guestMiddleware = require('./middlewares/guestMiddleware');
 
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
+
+app.use(session({
+    secret: 'Pelotero',
+   /*  resave: false,
+    saveUninitialized:false, */
+}));
+app.use(userLoggedMiddleware);
+app.use(cookies());
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
