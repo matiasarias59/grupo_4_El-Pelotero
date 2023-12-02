@@ -12,7 +12,7 @@
           <input class="input-box" type="email" name="email" id="login-email" required>
           <% if (locals.errors && errors.email) { %>
             <div class ="text-danger">
-              <% errors.email.msg %>
+              <%= errors.email.msg %>
             </div>
           <% } %>
           <label class="label-input-box" for="password">Contraseña:</label>
