@@ -1,89 +1,106 @@
-.containerForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100vw;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+body {
+  background-color: #ececec;
 }
+
+.containerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
+
 .form-box {
   margin: 0 auto;
 }
-.products-title{
-    text-align: center;
-    color: #fcfcfc;
-    background-color: #345cbe;
-    font-size: 3rem;
-    font-weight: 400;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
-    width: 100%;
+
+.products-title {
+  text-align: center;
+  color: #fcfcfc;
+  background-color: #345cbe;
+  font-size: 3rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  width: 100%;
 }
+
 .formCreateP {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    padding: 0 10vw;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 10vw;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 }
+
 .form-label {
-    display: inline-block;
-    font-size: 1.6em;
-    margin: 10px 0;
-  }
-  
-  .form-input {
-        font-size: 1.5rem;
-        padding: 0.5rem 1.5rem;
-        border: solid 0.1rem #183234;
-        border-radius: 1rem;
-        width: 100%;
-    }
-    button.buy-now-button {
-        border: none;
-        border-radius: 1.5rem;
-        text-align: center;
-        color: #fcfcfc;
-        background-color: #345cbe;
-        font-size: 2rem;
-        font-weight: 400;
-        padding: 1rem 0;
-        margin: 2rem 15%;
-        width: 70%;
-        cursor: pointer;
-    }
-  textarea.form-input {
-    min-height: 140px;
-    resize: vertical;
-    padding: 15px;
-  }
-
-  .formDeleteButton {
-    width: 100%;
-  }
-  .delete-button {
-    border: none;
-    border-radius: 1.5rem;
-    text-align: center;
-    color: #fcfcfc;
-    background-color: #d43333;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 1.2rem 0;
-    width: 50%;
-    margin: 2rem 25% 0 25%;
-    cursor: pointer;
+  display: inline-block;
+  font-size: 1.6em;
+  margin: 10px 0;
 }
 
-  @media (min-width: 769px){
- .containerForm {
+.form-input {
+  font-size: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  border: 0;
+  border-radius: 1rem;
+  width: 100%;
+}
+
+button.buy-now-button {
+  border: none;
+  border-radius: 1.5rem;
+  text-align: center;
+  color: #fcfcfc;
+  background-color: #345cbe;
+  font-size: 2rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  margin: 2rem 15%;
+  width: 70%;
+  cursor: pointer;
+}
+
+textarea.form-input {
+  min-height: 140px;
+  resize: vertical;
+  padding: 15px;
+}
+
+.formDeleteButton {
+  width: 100%;
+}
+
+.delete-button {
+  border: none;
+  border-radius: 1.5rem;
+  text-align: center;
+  color: #fcfcfc;
+  background-color: #d43333;
+  font-size: 1.6rem;
+  font-weight: 400;
+  padding: 1.2rem 0;
+  width: 50%;
+  margin: 0 25% 0 25%;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .containerForm {
     width: 40rem;
     margin: 5rem auto;
-    border: solid 0.2rem #345cbe;
     border-radius: 3rem;
     overflow: hidden;
-}
-.formCreateP{ 
-        padding: 0 10%;
-}
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
   }
+
+  .formCreateP {
+    padding: 0 10%;
+  }
+
+  .form-input {
+    border: solid 0.1rem #183234;
+  }
+
+}
