@@ -1,4 +1,4 @@
-<%- include('../partials/head', {styles:['login', 'headerfooter'], title: 'Ingresar'}) %>
+<%- include('../partials/head', {styles:['login', 'account', 'headerfooter'], title: 'Ingresar'}) %>
 
 <body>
   
@@ -7,15 +7,17 @@
     <main class="main-login">
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
-        
-        <div>
-            <img src="img/users/<%=locals.user.avatar%>" alt="" srcset="">
+
+       <div class="account-info">
+        <img class="profile-pic" src="/img/users/profile/<%=locals.user.avatar%>" alt="">
+        <div class="account-data">
+          <p>Nombre</p>
+          <p class="data"><%= locals.user.firstName %> <%= locals.user.lastName %></p>
+          <p>Fecha de Nacimiento</p>
+          <p class="data"><%= locals.user.birthDate %></p>
+          <p>Email</p> 
+          <p class="data"><%= locals.user.email %></p>
         </div>
-       <div>
-        <p>Nombre: <%= locals.user.firstName %></p>
-        <p>Apellido: <%= locals.user.lastName %></p>
-        <p>Fecha de Nacimiento: <%= locals.user.birthDate %></p>
-        <p>Email: <%= locals.user.email %></p>
        </div>
 
       </div>

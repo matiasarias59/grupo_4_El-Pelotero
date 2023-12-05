@@ -81,8 +81,8 @@ header {
 
 /* Footer Css */
 footer {
-    color: #fcfcfc;
-    background: linear-gradient(135deg, #04d6c8, #345cbe);
+    color: black;
+    background-color: white;
     height: 60vh;
     text-align: center;
     display: flex;

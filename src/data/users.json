@@ -295,5 +295,14 @@
     "email": "matiasarias59@gmail.com",
     "password": "$2a$10$.QZrRdc1Hyhu0F50G1dgHeV.sC9zGcEsSA3q17ahRKl6TK6tfAZgm",
     "avatar": "defaultPic.jpg"
+  },
+  {
+    "id": 34,
+    "firstName": "Benjamin",
+    "lastName": "Meyer",
+    "birthDate": "2004-06-28",
+    "email": "benjatmeyer@gmail.com",
+    "password": "$2a$10$xqyHY9DxK.FvUhJi5NXMb.w6F6yeHvvmApiiaGxL5MJCg.hix50ha",
+    "avatar": "defaultPic.jpg"
   }
 ]
