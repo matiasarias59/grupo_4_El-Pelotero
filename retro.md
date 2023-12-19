@@ -57,3 +57,14 @@
 #### Qué debemos continuar haciendo 
 - Ayudarnos mutuamente
 - Division de trabajo eficiente
+
+## Sprint 6
+
+#### Qué hicimos bien?
+- Terminamos tareas atrasadas de sprint anterior
+
+#### Qué debemos mejorar?
+- Nos estancamos con la division de tareas y el modelado de la db
+
+#### Qué debemos continuar haciendo 
+- Pedir ayuda si nos atrasamos o nos atascamos con algun problema
