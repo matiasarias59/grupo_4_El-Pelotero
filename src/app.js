@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -38,7 +39,8 @@ app.use('/products', productRouter);
 app.use('/users', usersRouter);
 
 
-const port = 3010;
+const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
     console.log(`Escuchando en el puerto http://localhost:${port}`);
 });
