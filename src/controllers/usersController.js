@@ -1,4 +1,7 @@
-const User = require('../models/Users');
+const db = require('../database/models');
+const User = db.User;
+const Rol = db.Rol;
+//const User = require('../models/Users');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 
@@ -13,29 +16,29 @@ const controller = {
         
     },
 
-    registerProcess: (req, res) => {
-
-        const errors = validationResult(req)
-        if (!errors.isEmpty()) {
-          return res.render("./users/register", {
-            errors: errors.mapped(),
-            oldData: req.body,
-          });
-        }
-
-        const newUser = {
+    registerProcess: async (req, res) => {
+        try {
+          const newUser = {
             ...req.body,
             password: bcrypt.hashSync(req.body.password, 10),
             avatar: req.file?.filename || 'defaultPic.jpg'
+          };
+    
+          delete newUser.confirmPassword;
+          delete newUser.termsCheck;
+    
+          // Utiliza el método create para agregar el nuevo usuario a la base de datos
+          const createdUser = await User.create(newUser);
+    
+          // El objeto createdUser ahora contiene la instancia del usuario recién creado en la base de datos
+    
+          res.redirect('/');
+        } catch (error) {
+          // Manejo de errores
+          console.error('Error al crear un nuevo usuario:', error);
+          res.status(500).send('Error interno del servidor');
         }
-
-        delete newUser.confirmPassword;
-        delete newUser.termsCheck;
-
-        User.create(newUser);
-
-        res.redirect('/');
-    },
+      },
    
     
     login: (req, res) => {

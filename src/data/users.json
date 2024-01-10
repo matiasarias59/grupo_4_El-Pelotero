@@ -304,5 +304,14 @@
     "email": "benjatmeyer@gmail.com",
     "password": "$2a$10$xqyHY9DxK.FvUhJi5NXMb.w6F6yeHvvmApiiaGxL5MJCg.hix50ha",
     "avatar": "defaultPic.jpg"
+  },
+  {
+    "id": 35,
+    "firstName": "Joel",
+    "lastName": "Bonus",
+    "birthDate": "1992-07-07",
+    "email": "joelsbonus@gmail.com",
+    "password": "$2a$10$GEddEwA3xK3QnUvRt14ppO3HhXTMpE5phrRg2Cc/TRDfuH.JrI.N.",
+    "avatar": "defaultPic.jpg"
   }
 ]
