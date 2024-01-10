@@ -1,6 +1,7 @@
 const db = require('../database/models');
 const User = db.User;
 const Rol = db.Rol;
+const { Op } = require('sequelize');
 //const User = require('../models/Users');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
@@ -18,24 +19,45 @@ const controller = {
 
     registerProcess: async (req, res) => {
         try {
+          const errors = validationResult(req);
+          if (!errors.isEmpty()) {
+            return res.render('./users/register', {
+              errors: errors.mapped(),
+              oldData: req.body,
+            });
+          }
+    
+          const { first_name, last_name, birth_date, roles_id, ...otherFields } = req.body;
+    
           const newUser = {
-            ...req.body,
+            first_name,
+            last_name,
+            birth_date,
+            roles_id,
+            ...otherFields,
             password: bcrypt.hashSync(req.body.password, 10),
-            avatar: req.file?.filename || 'defaultPic.jpg'
+            avatar: req.file?.filename || 'defaultPic.jpg',
           };
     
           delete newUser.confirmPassword;
           delete newUser.termsCheck;
     
-          // Utiliza el método create para agregar el nuevo usuario a la base de datos
           const createdUser = await User.create(newUser);
-    
-          // El objeto createdUser ahora contiene la instancia del usuario recién creado en la base de datos
     
           res.redirect('/');
         } catch (error) {
-          // Manejo de errores
           console.error('Error al crear un nuevo usuario:', error);
+    
+          if (error.name === 'SequelizeValidationError') {
+            return res.status(400).render('./users/register', {
+              errors: error.errors.map((err) => ({
+                param: err.path,
+                msg: err.message,
+              })),
+              oldData: req.body,
+            });
+          }
+    
           res.status(500).send('Error interno del servidor');
         }
       },
@@ -45,41 +67,50 @@ const controller = {
         res.render('./users/login');
     },
     
-    loginProcess: (req, res) => {
-
-        const userToLogin = User.findByField('email', req.body.email);
-
-        if (userToLogin) {
-           const isOkThePassword = bcrypt.compareSync(req.body.password, userToLogin.password);
-            if (isOkThePassword) {
-                delete userToLogin.password;
-                req.session.userLogged = {...userToLogin};
-                if(req.body.remember_me){
-                    res.cookie('userEmail', req.body.email, {maxAge: (1000*60) *2});
-                }
-                return res.redirect('/');
-            }
-            return res.render('./users/login', {
-                errors: {
-                    email: {
-                        msg: 'Las credenciales son inválidas'
-                    }
-                }
+    loginProcess: async (req, res) => {
+        try {
+            const userToLogin = await User.findOne({
+                where: { email: req.body.email }
             });
-        }
-        console.log(req.session);
-    },
 
+            if (userToLogin) {
+                const isOkThePassword = await bcrypt.compare(req.body.password, userToLogin.password);
+                if (isOkThePassword) {
+                    delete userToLogin.password;
+                    req.session.userLogged = { ...userToLogin };
+                    if (req.body.remember_me) {
+                        res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 2, httpOnly: true });
+                    }
+                    return res.redirect('/');
+                }
+                return res.render('./users/login', {
+                    errors: {
+                        email: {
+                            msg: 'Las credenciales son inválidas'
+                        }
+                    }
+                });
+            }
+
+            console.log(req.session);
+        } catch (error) {
+            console.error('Error al procesar el inicio de sesión:', error);
+            res.status(500).send('Error interno del servidor');
+        }
+    },
 logout : (req,res)=> {
     req.session.destroy()
     res.clearCookie('userEmail')
     return res.redirect('/')
 },
 
-account : (req,res)=> {
-    const user = {...req.session.userLogged}
-    return res.render('./users/account', {user});
+account: (req, res) => {
+    if (!req.session.userLogged) {
+        return res.redirect('/users/login');
+    }
 
+    const user = { ...req.session.userLogged };
+    return res.render('./users/account', { user });
 }
 
 };

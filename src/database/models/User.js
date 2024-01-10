@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'products_id',
         otherKey: 'users_id',
         through: 'products_likes',
-        as: 'products_likes',
+        as: 'products_liked',
       });
     }
   }

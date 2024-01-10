@@ -34,7 +34,16 @@ module.exports = {
       birth_date: '07/03/2009',
       roles_id: '2',
      },
-     
+     {
+      
+      first_name: 'Joel',
+      last_name: 'Bonus',
+      birthDate: '1992-07-07',
+      email: "joelsbonus@gmail.com",
+      password: "$2a$10$GEddEwA3xK3QnUvRt14ppO3HhXTMpE5phrRg2Cc/TRDfuH.JrI.N.",
+      avatar: "defaultPic.jpg",
+      roles_id: '1',
+    }
      
      
       

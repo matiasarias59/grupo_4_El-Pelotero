@@ -14,7 +14,7 @@
         <div class="product">
         <% locals.products && products.forEach(product => { %>
           <article class="article-product">
-            <img src="/img/products/<%= product.image %>" class="img-product" alt="img-product" />
+            <img src="/img/products/<%= product.image || 'no-image.jpg' %>" class="img-product" alt="img-product" />
             <div class="description-box">
               <div class="favourite-icon-box">
                 <i class="fa-regular fa-heart favourite-icon"></i>
