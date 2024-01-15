@@ -1,7 +1,7 @@
 const db = require('../database/models');
 const User = db.User;
 const Rol = db.Rol;
-const { Op } = require('sequelize');
+//const { Op } = require('sequelize');
 //const User = require('../models/Users');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
@@ -61,7 +61,50 @@ const controller = {
           res.status(500).send('Error interno del servidor');
         }
       },
-   
+      index: async (req, res) => {
+        try {
+          const users = await User.findAll();
+          res.render('./users/index', { users });
+        } catch (error) {
+          console.error('Error al obtener la lista de usuarios:', error);
+          res.status(500).send('Error interno del servidor');
+        }
+      },
+    
+      edit: async (req, res) => {
+        try {
+          const userId = req.params.id;
+          const user = await User.findByPk(userId);
+          res.render('./users/edit', { user });
+        } catch (error) {
+          console.error('Error al obtener el formulario de edición:', error);
+          res.status(500).send('Error interno del servidor');
+        }
+      },
+    
+      update: async (req, res) => {
+        try {
+          const userId = req.params.id;
+          const updatedUser = req.body;
+          await User.update(updatedUser, { where: { id: userId } });
+          res.redirect(`/users/${userId}`);
+        } catch (error) {
+          console.error('Error al actualizar el usuario:', error);
+          res.status(500).send('Error interno del servidor');
+        }
+      },
+    
+      destroy: async (req, res) => {
+        try {
+          const userId = req.params.id;
+          await User.destroy({ where: { id: userId } });
+          res.redirect('/users');
+        } catch (error) {
+          console.error('Error al eliminar el usuario:', error);
+          res.status(500).send('Error interno del servidor');
+        }
+      },
+    
     
     login: (req, res) => {
         res.render('./users/login');

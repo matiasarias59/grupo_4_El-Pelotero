@@ -1,0 +1,16 @@
+<%- include('../partials/head', {styles:['index', 'headerfooter'], title: 'Lista de Usuarios'}) %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main>
+      <h1>Lista de Usuarios</h1>
+      <ul>
+        <% users.forEach(user => { %>
+          <li><a href="/users/<%= user.id %>"><%= user.first_name %> <%= user.last_name %></a></li>
+        <% }) %>
+      </ul>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>
