@@ -23,7 +23,7 @@ router.get('/account', authMiddleware, usersController.account);
 
 router.get('/users', authMiddleware, usersController.index);
 router.get('/users/:id/edit', authMiddleware, usersController.edit);
-router.post('/users/:id/edit', authMiddleware, usersController.update);
+router.put('/users/:id/edit', authMiddleware, usersController.update);
 //router.get('/users/:id', authMiddleware, usersController.show);
 
 module.exports = router;

@@ -2,13 +2,13 @@ const {body} = require('express-validator');
 
 const createUserValidation = [
 
-    body('firstName').
+    body('first_name').
     notEmpty().withMessage('El campo Nombre no puede estar vacio'),
 
-    body('lastName').
+    body('last_name').
     notEmpty().withMessage('El campo Apellido no puede estar vacio'),
 
-    body('birthDate').
+    body('birth_date').
     notEmpty().withMessage('El campo Fecha de Nacimiento no puede estar vacio'),
 
     body('email').

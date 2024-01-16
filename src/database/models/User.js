@@ -54,6 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE,
     }, 
     roles_id:{
+      defaultValue: 3,
       allowNull:false,
       type: DataTypes.INTEGER
     }, 
