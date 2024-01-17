@@ -5,9 +5,15 @@
 
     <main>
       <h1>Editar Usuario</h1>
+<<<<<<< HEAD
       <form action="/users/<%= user.id %>/edit" method="post">
         <label for="firstname">Nombre</label>
         <input type="text" name="firstname" value="<%= user.first_name %>" required>
+=======
+      <form action="/users/<%= user.id %>/edit?_method=PUT" method="post">
+        <label for="first_name">Nombre</label>
+        <input type="text" name="first_name" value="<%= user.first_name %>" required>
+>>>>>>> 0863e44e1c147ab18087e9e64a5a2981f2bc2e4b
 
         <label for="last_name">Apellido</label>
         <input type="text" name="lastname" value="<%= user.last_name %>" required>
