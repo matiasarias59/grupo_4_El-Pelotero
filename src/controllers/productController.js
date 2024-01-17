@@ -1,6 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
+const db = require('../database/models');
+const { Op } = require('sequelize');
+
 const productsFilePath = path.join(__dirname, '../data/products.json');
 function getProducts() {
 	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
@@ -8,9 +11,13 @@ function getProducts() {
 }
 
 const controller = {
-    products: (req, res) => {
-        const products = getProducts();
-        res.render('products/allProducts', { products });
+    products: async (req, res) => {
+        try {
+            const products = await db.Product.findAll();
+            res.render('products/allProducts', { products });
+        } catch (error) {
+            res.status(500).send(error);
+        }
     },
     create: (req, res) => {
         res.render('products/createProduct');
@@ -24,14 +31,17 @@ const controller = {
         };
         products.push(productToCreate);
         fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf8');
-        res.redirect('/products');
     },
-    productDetail: (req, res) => {
-        const product = getProducts().find(prod => prod.id == req.params.id)
-        if (!product) {
-            return res.send('No existe este producto');
+    productDetail: async (req, res) => {
+        try {
+            const product = await db.Product.findByPk(req.params.id);
+            if (!product) {
+                return res.status(404).json({ message: 'Producto no encontrado' });
+            }
+            res.render('products/productDetail', { product });
+        } catch (error) {
+            res.status(500).send(error);
         }
-        res.render('products/productDetail', { product });
     },
     edit: (req, res) => {
         const productToEdit = getProducts().find(prod => prod.id == req.params.id);

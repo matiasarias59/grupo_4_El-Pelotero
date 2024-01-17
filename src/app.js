@@ -17,8 +17,8 @@ const app = express();
 
 app.use(session({
     secret: 'Pelotero',
-   /*  resave: false,
-    saveUninitialized:false, */
+     resave: false,
+ saveUninitialized:false, 
 }));
 app.use(cookies());
 app.use(userLoggedMiddleware);
