@@ -19,7 +19,7 @@
           <p class="data"><%= locals.user.email %></p>
         </div>
        </div>
-
+       <button onclick="window.location.href='/users/<%= user.id %>/edit'">Editar Perfil</button>
       </div>
     </main>
     <%- include('../partials/footer') %>

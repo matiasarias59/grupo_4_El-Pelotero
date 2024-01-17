@@ -74,6 +74,7 @@ const controller = {
       edit: async (req, res) => {
         try {
           const userId = req.params.id;
+          console.log('User ID:', userId);
           const user = await User.findByPk(userId);
           res.render('./users/edit', { user });
         } catch (error) {

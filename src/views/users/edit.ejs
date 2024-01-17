@@ -1,16 +1,16 @@
 
-<%- include('../partials/head', {styles:['edit', 'headerfooter'], title: 'Editar Usuario'}) %>
+<%- include('../partials/head', {styles:['login', 'account', 'headerfooter'], title: 'Editar Usuario'}) %>
   <body>
     <%- include('../partials/header') %>
 
     <main>
       <h1>Editar Usuario</h1>
       <form action="/users/<%= user.id %>/edit" method="post">
-        <label for="first_name">Nombre</label>
-        <input type="text" name="first_name" value="<%= user.first_name %>" required>
+        <label for="firstname">Nombre</label>
+        <input type="text" name="firstname" value="<%= user.first_name %>" required>
 
         <label for="last_name">Apellido</label>
-        <input type="text" name="last_name" value="<%= user.last_name %>" required>
+        <input type="text" name="lastname" value="<%= user.last_name %>" required>
         <button type="submit">Actualizar Usuario</button>
       </form>
     </main>
