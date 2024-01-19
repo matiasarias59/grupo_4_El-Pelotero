@@ -21,9 +21,12 @@ router.post('/register', upload.single('avatar'), createUserValidation, usersCon
 
 router.get('/account', authMiddleware, usersController.account);
 
-router.get('/users', authMiddleware, usersController.index);
-router.get('/users/:id/edit', authMiddleware, usersController.edit);
-router.put('/users/:id/edit', authMiddleware, usersController.update);
-//router.get('/users/:id', authMiddleware, usersController.show);
+router.get('/list', authMiddleware, usersController.index);
+router.get('/:id', authMiddleware, usersController.show);
+router.get('/:id/edit', authMiddleware, usersController.edit);
+router.put('/:id/edit', authMiddleware, usersController.update);
+router.post('/:id/delete', authMiddleware, usersController.destroy);
+//router.get('/:id/account', authMiddleware, usersController.update);
+
 
 module.exports = router;

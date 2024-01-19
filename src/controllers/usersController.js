@@ -32,7 +32,7 @@ const controller = {
 
       await User.create(newUser);
 
-      res.redirect('/');
+      res.redirect('/users/login');
     } catch (error) {
       console.error('Error al crear un nuevo usuario:', error);
 
@@ -52,13 +52,25 @@ const controller = {
   index: async (req, res) => {
     try {
       const users = await User.findAll();
-      res.render('./users/index', { users });
+      res.render('./users/list', { users });
     } catch (error) {
       console.error('Error al obtener la lista de usuarios:', error);
       res.status(500).send('Error interno del servidor');
     }
   },
-
+  show: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const user = await User.findByPk(userId);
+      if (!user) {
+        return res.status(404).send('Usuario no encontrado');
+      }
+      res.render('./users/user', { user });
+    } catch (error) {
+      console.error('Error al obtener el usuario:', error);
+      res.status(500).send('Error interno del servidor');
+    }
+  },
   edit: async (req, res) => {
     try {
       const userId = req.params.id;
@@ -86,7 +98,8 @@ const controller = {
     try {
       const userId = req.params.id;
       await User.destroy({ where: { id: userId } });
-      res.redirect('/users');
+      req.session.destroy();
+      res.redirect('/users/list');
     } catch (error) {
       console.error('Error al eliminar el usuario:', error);
       res.status(500).send('Error interno del servidor');
@@ -113,64 +126,6 @@ const controller = {
           }
           return res.redirect('/');
         }
-<<<<<<< HEAD
-      },
-      index: async (req, res) => {
-        try {
-          const users = await User.findAll();
-          res.render('./users/index', { users });
-        } catch (error) {
-          console.error('Error al obtener la lista de usuarios:', error);
-          res.status(500).send('Error interno del servidor');
-        }
-      },
-    
-      edit: async (req, res) => {
-        try {
-          const userId = req.params.id;
-          console.log('User ID:', userId);
-          const user = await User.findByPk(userId);
-          res.render('./users/edit', { user });
-        } catch (error) {
-          console.error('Error al obtener el formulario de edición:', error);
-          res.status(500).send('Error interno del servidor');
-        }
-      },
-    
-      update: async (req, res) => {
-        try {
-          const userId = req.params.id;
-          const updatedUser = req.body;
-          await User.update(updatedUser, { where: { id: userId } });
-          res.redirect(`/users/${userId}`);
-        } catch (error) {
-          console.error('Error al actualizar el usuario:', error);
-          res.status(500).send('Error interno del servidor');
-        }
-      },
-    
-      destroy: async (req, res) => {
-        try {
-          const userId = req.params.id;
-          await User.destroy({ where: { id: userId } });
-          res.redirect('/users');
-        } catch (error) {
-          console.error('Error al eliminar el usuario:', error);
-          res.status(500).send('Error interno del servidor');
-        }
-      },
-    
-    
-    login: (req, res) => {
-        res.render('./users/login');
-    },
-    
-    loginProcess: async (req, res) => {
-        try {
-            const userToLogin = await User.findOne({
-                where: { email: req.body.email }
-            });
-=======
         return res.render('./users/login', {
           errors: {
             email: {
@@ -189,7 +144,6 @@ const controller = {
     res.clearCookie('userEmail');
     return res.redirect('/');
   },
->>>>>>> 0863e44e1c147ab18087e9e64a5a2981f2bc2e4b
 
   account: (req, res) => {
     if (!req.session.userLogged) {

@@ -1,0 +1,60 @@
+
+body{
+    background-color:  #ececec ;
+}
+.EditTitle{    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;}
+.EditData{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    padding: 10px 20px 30px 20px;
+    align-items: center;
+}
+.EditUser {
+    width: 40rem;
+    margin: 5rem auto;
+    border-radius: 3rem;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
+    background-color: white;
+}
+.ButtonContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.UpdateButton{
+    background-color: rgb(52, 92, 190);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 2rem;
+}
+.DeleteButton{
+    background-color: rgb(52, 92, 190);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 2rem;
+}
+.UpdateButton:hover {
+    background-color: rgb(4, 215, 210);
+  
+  }
+  .DeleteButton:hover {
+    background-color: red;
+  }

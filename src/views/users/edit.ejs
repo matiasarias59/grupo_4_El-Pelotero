@@ -1,24 +1,31 @@
 
-<%- include('../partials/head', {styles:['login', 'account', 'headerfooter'], title: 'Editar Usuario'}) %>
+<%- include('../partials/head', {styles:['edit', 'headerfooter'], title: 'Editar Usuario'}) %>
   <body>
     <%- include('../partials/header') %>
 
-    <main>
-      <h1>Editar Usuario</h1>
-<<<<<<< HEAD
-      <form action="/users/<%= user.id %>/edit" method="post">
-        <label for="firstname">Nombre</label>
-        <input type="text" name="firstname" value="<%= user.first_name %>" required>
-=======
+    <main class="EditUser">
+      <div class="container">
+      <h1 class = "EditTitle">Editar Usuario</h1>
+      <div class = "EditData">
       <form action="/users/<%= user.id %>/edit?_method=PUT" method="post">
         <label for="first_name">Nombre</label>
         <input type="text" name="first_name" value="<%= user.first_name %>" required>
->>>>>>> 0863e44e1c147ab18087e9e64a5a2981f2bc2e4b
 
         <label for="last_name">Apellido</label>
         <input type="text" name="lastname" value="<%= user.last_name %>" required>
-        <button type="submit">Actualizar Usuario</button>
+        <label for="birth_date">Fecha de Nacimiento</label>
+        <input type="date" name="birthDate" value="<%= user.birth_date.toISOString().split('T')[0] %>" required>
+        <label for="avatar">Avatar</label>
+        <input type="file" name="avatar" accept="image/*">
+      </div>
+      <div class="ButtonContainer">
+       <button class="UpdateButton" type="submit">Actualizar Usuario</button>
+      </form>      
+      <form action="/users/<%= user.id %>/delete" method="post">
+        <button class="DeleteButton"  type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?')">Eliminar Usuario</button>
       </form>
+      </div>
+      </div>
     </main>
 
     <%- include('../partials/footer') %>

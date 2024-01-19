@@ -21,7 +21,21 @@
     font-weight: 500;
     margin-bottom: 14px;
 }
-
+.ButtonContainer{
+    display: flex;
+    flex-direction: column;
+}
+.EditButton{
+    background-color: rgb(52, 92, 190);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 2rem;
+}
 @media (min-width: 769px) {
     .login {
         width: 50rem;
