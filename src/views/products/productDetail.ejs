@@ -8,7 +8,7 @@
         <h4 class="product-route"><a href="/">Inicio</a> > <a href="/products">Productos</a> >  <%= product.name %> </h4>
         <section class="detail-section">
           <div class="img-section">
-            <img src="/img/products/<%= product.images[0].url || 'no-image.jpg' %>" class="product-img" alt="product-img">
+            <img src="/img/products/<%= product.images[0]?.url || 'no-image.jpg' %>" class="product-img" alt="product-img">
             <div class="favourite-icon">
               <i class="far fa-heart fa-3x "></i>
             </div>
