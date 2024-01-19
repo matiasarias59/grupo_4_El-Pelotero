@@ -14,7 +14,7 @@ module.exports = {
       password: '$2a$10$.QZrRdc1Hyhu0F50G1dgHeV.sC9zGcEsSA3q17ahRKl6TK6tfAZgm',
       avatar: 'defaultPic.jpg',
       birth_date: '1996-03-14',
-      roles_id: '1',
+      rol_id: 1,
      },
      {
       first_name: 'Cherie',
@@ -23,7 +23,7 @@ module.exports = {
       password: 'uW7>s~/KU)=#Kit',
       avatar: 'avatar2.jpg',
       birth_date: '17/08/2007',
-      roles_id: '3',
+      rol_id: 3,
      },
      {
       first_name: 'Anitra',
@@ -32,7 +32,7 @@ module.exports = {
       password: 'pC6.KR`hf',
       avatar: 'avatar10.jpg',
       birth_date: '07/03/2009',
-      roles_id: '2',
+      rol_id: 2,
      },
      
      

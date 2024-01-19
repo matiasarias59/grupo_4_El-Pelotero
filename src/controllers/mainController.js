@@ -1,17 +1,20 @@
 const path = require('path');
 const fs = require('fs');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-function getProducts() {
-	const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-	return products;
-}
+const db = require('../database/models');
 
 const controller = {
 
-    index: (req, res) => {
-        const products = getProducts();
-        res.render('index', { products });
+    index: async (req, res) => {
+        try {
+            const products = await db.Product.findAll( { 
+                include: ['images'],
+                order: [['id', 'DESC']],
+                limit: 4
+            } );
+            res.render('index', { products });
+        } catch (error) {
+            res.status(500).send(error);
+        }
     },
 
 /*     login: (req, res) => {
