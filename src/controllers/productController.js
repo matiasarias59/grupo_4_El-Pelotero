@@ -4,8 +4,16 @@ const { Op } = require('sequelize');
 const controller = {
     products: async (req, res) => {
         try {
-            const products = await db.Product.findAll( { include: ['images'] } );
-            return res.render('products/allProducts', { products });
+            const search = req.query.search || "";
+            const products = await db.Product.findAll({ 
+                include: ['images'],
+                where: {
+                    name: {
+                        [Op.like]: `%${search}%`
+                    }
+                } 
+            });
+            return res.render('products/allProducts', { products, search });
         } catch (error) {
             return res.status(500).send(error);
         }

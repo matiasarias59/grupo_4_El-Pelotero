@@ -11,22 +11,32 @@
             </div>
           </a>
         </div>
-        <div class="product">
-        <% locals.products && products.forEach(product => { %>
-          <article class="article-product">
-            <img src="/img/products/<%= product.images[0]?.url || 'no-image.jpg' %>" class="img-product" alt="img-product" />
-            <div class="description-box">
-              <div class="favourite-icon-box">
-                <i class="fa-regular fa-heart favourite-icon"></i>
+        <% if (locals.search) { %>
+          <p class="search">Buscaste: <%= locals.search || null%></p>
+        <% } %>
+        
+        <% if (products.length === 0) { %>
+          <div class="zero-prod">
+            <p>No hay resultados</p>
+          </div>
+        <% } else { %>
+          <div class="product">
+          <% locals.products && products.forEach(product => { %>
+            <article class="article-product">
+              <img src="/img/products/<%= product.images[0]?.url || 'no-image.jpg' %>" class="img-product" alt="img-product" />
+              <div class="description-box">
+                <div class="favourite-icon-box">
+                  <i class="fa-regular fa-heart favourite-icon"></i>
+                </div>
+                <p class="description-text"><a href="/products/product-detail"><%= product.name %></a></p>
+                <p class="bottom-text"><%= product.brand %></p>
+                <p class="price">$<%= new Intl.NumberFormat('es-AR').format(product.price) %></p>
               </div>
-              <p class="description-text"><a href="/products/product-detail"><%= product.name %></a></p>
-              <p class="bottom-text"><%= product.brand %></p>
-              <p class="price">$<%= new Intl.NumberFormat('es-AR').format(product.price) %></p>
-            </div>
-            <a href="/products/<%= product.id %>" class="product-link"></a>
-          </article>
-        <% }) %>
-        </div>
+              <a href="/products/<%= product.id %>" class="product-link"></a>
+            </article>
+          <% }) %>
+          </div>
+        <% } %>
 
       </section>
     </main>
