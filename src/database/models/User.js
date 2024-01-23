@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.belongsTo(models.Rol,{
-        foreignKey: 'roles_id',
+        foreignKey: 'rol_id',
         as: 'rol',
       });
       User.hasMany(models.Cart, {
@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
       type: DataTypes.DATE,
     }, 
-    roles_id:{
+    rol_id:{
       defaultValue: 3,
       allowNull:false,
       type: DataTypes.INTEGER

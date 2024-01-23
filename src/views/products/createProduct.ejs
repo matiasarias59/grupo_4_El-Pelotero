@@ -15,20 +15,30 @@
 						<input type="text" id="name" name="name" placeholder="Ej: Pelota Topper Retro II Campo" class="form-input">
 					</div>
 					<div class="formBrand">
-						<label for="brand" class="form-label">Marca del producto:</label>
-						<input type="text" id="brand" name="brand" placeholder="Ej: Topper" class="form-input">
+						<label for="brands_id" class="form-label">Marca del producto:</label>
+						<select name="brands_id" id="brands_id" class="form-input" required>
+							<option value="">-</option>
+							<% locals.brands && brands.forEach(brand => { %>
+								<option value="<%= brand.id %>"><%= brand.name %></option>
+							<% }) %>
+						</select>
+					</div>
+					<div class="formCat">
+						<label for="categories_id" class="form-label">Categoría:</label>
+						<select name="categories_id" id="categories_id" class="form-input" required>
+							<option value="">-</option>
+							<% locals.categories && categories.forEach(category => { %>
+								<option value="<%= category.id %>"><%= category.name %></option>
+							<% }) %>
+						</select>
 					</div>
 					<div class="formPrice">
 						<label for="price" class="form-label">Precio del producto ($):</label>
 						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
 					</div>
-					<div class="formCat">
-						<label for="category" class="form-label">Categoría:</label>
-						<select name="category" id="category" class="form-input">
-							<option value="">Sin Categoría</option>
-							<option value="in-sale">En oferta</option>
-							<option value="relevant">Destacados</option>
-						</select>
+					<div class="formQuantity">
+						<label for="quantity" class="form-label">Cantidad en stock:</label>
+						<input type="text" id="quantity" name="quantity" placeholder="Ej: 99" class="form-input">
 					</div>
 					<div class="formDescription">
 						<label for="description" class="form-label">Descipción:</label>
