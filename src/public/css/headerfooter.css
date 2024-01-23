@@ -189,7 +189,11 @@ footer {
       border: none;
       background-color: #fcfcfc;
       font-size: 1.5rem;
+      padding: 1rem;
       height: 3rem;
+    }
+    .search-bar_desktop_input:focus {
+      outline: none;
     }
     .search-bar_desktop_btn {
       border: none;
