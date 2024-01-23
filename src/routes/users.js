@@ -21,10 +21,10 @@ router.post('/register', upload.single('avatar'), createUserValidation, usersCon
 
 router.get('/account', authMiddleware, usersController.account);
 
-router.get('/list', authMiddleware, usersController.index);
-router.get('/:id', authMiddleware, usersController.show);
+//router.get('/list', authMiddleware, usersController.index);
+//router.get('/:id', authMiddleware, usersController.show);
 router.get('/:id/edit', authMiddleware, usersController.edit);
-router.put('/:id/edit', authMiddleware, usersController.update);
+router.put('/:id/edit', authMiddleware, upload.single('avatar'), usersController.update);
 router.post('/:id/delete', authMiddleware, usersController.destroy);
 //router.get('/:id/account', authMiddleware, usersController.update);
 

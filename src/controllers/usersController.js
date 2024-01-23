@@ -2,6 +2,8 @@ const db = require('../database/models');
 const User = db.User;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const fs = require('fs');
+const path = require('path');
 
 const { validationResult } = require('express-validator');
 
@@ -49,7 +51,7 @@ const controller = {
       res.status(500).send('Error interno del servidor');
     }
   },
-  index: async (req, res) => {
+/*   index: async (req, res) => {
     try {
       const users = await User.findAll();
       res.render('./users/list', { users });
@@ -57,8 +59,8 @@ const controller = {
       console.error('Error al obtener la lista de usuarios:', error);
       res.status(500).send('Error interno del servidor');
     }
-  },
-  show: async (req, res) => {
+  }, */
+/*   show: async (req, res) => {
     try {
       const userId = req.params.id;
       const user = await User.findByPk(userId);
@@ -70,7 +72,7 @@ const controller = {
       console.error('Error al obtener el usuario:', error);
       res.status(500).send('Error interno del servidor');
     }
-  },
+  }, */
   edit: async (req, res) => {
     try {
       const userId = req.params.id;
@@ -85,9 +87,35 @@ const controller = {
   update: async (req, res) => {
     try {
       const userId = req.params.id;
-      const updatedUser = req.body;
-      await User.update(updatedUser, { where: { id: userId } });
-      res.redirect(`/users/${userId}`);
+
+      let userToEdit = await User.findByPk(userId);
+
+      if (req.file) {
+        if (userToEdit.avatar != 'defaultPic.jpg') {
+          try {
+            fs.rmSync(path.join(__dirname, '../public/img/users/profile', userToEdit.avatar));
+            
+          } catch (error) {
+            console.log(error);
+          }
+        }
+        userToEdit.avatar = req.file.filename;
+      }
+
+      userToEdit = {
+        ...req.body,
+        avatar: userToEdit.avatar,
+      };
+
+      await User.update({ ...userToEdit }, { where: { id: userId } });
+
+      req.session.userLogged.dataValues = { 
+        ...req.session.userLogged.dataValues,
+        ...userToEdit 
+      };
+
+
+      res.redirect(`/users/account`);
     } catch (error) {
       console.error('Error al actualizar el usuario:', error);
       res.status(500).send('Error interno del servidor');
@@ -119,7 +147,8 @@ const controller = {
       if (userToLogin) {
         const isOkThePassword = await bcrypt.compare(req.body.password, userToLogin.password);
         if (isOkThePassword) {
-          delete userToLogin.password;
+          //delete userToLogin.password;
+          userToLogin.password = undefined;
           req.session.userLogged = { ...userToLogin };
           if (req.body.remember_me) {
             res.cookie('userEmail', req.body.email, { maxAge: 1000 * 60 * 2, httpOnly: true });
@@ -146,12 +175,9 @@ const controller = {
   },
 
   account: (req, res) => {
-    if (!req.session.userLogged) {
-      return res.redirect('/users/login');
-    }
 
     const user = { ...req.session.userLogged.dataValues };
-    console.log(user);
+    //console.log(user);
     return res.render('./users/account', { user });
   },
 };

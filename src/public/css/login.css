@@ -35,11 +35,14 @@ body {
     margin: 0.5rem 0;
     width: 100%;
 }
-#remember-me {
+#remember_me {
+    cursor: pointer;
     margin: 1rem;
     width: 1.5rem;
 }
 #label-remember-me {
+    cursor: pointer;
+    user-select: none;
     margin: 1rem 0;
     font-size: 1.5rem;
     color: #183234;

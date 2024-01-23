@@ -4,28 +4,35 @@
     <%- include('../partials/header') %>
 
     <main class="EditUser">
-      <div class="container">
-      <h1 class = "EditTitle">Editar Usuario</h1>
-      <div class = "EditData">
-      <form action="/users/<%= user.id %>/edit?_method=PUT" method="post">
-        <label for="first_name">Nombre</label>
-        <input type="text" name="first_name" value="<%= user.first_name %>" required>
-
-        <label for="last_name">Apellido</label>
-        <input type="text" name="lastname" value="<%= user.last_name %>" required>
-        <label for="birth_date">Fecha de Nacimiento</label>
-        <input type="date" name="birthDate" value="<%= user.birth_date.toISOString().split('T')[0] %>" required>
-        <label for="avatar">Avatar</label>
-        <input type="file" name="avatar" accept="image/*">
-      </div>
+      <!-- <div class="container"> -->
+      <h1 class = "EditTitle">Editar Cuenta</h1>
+      <!-- <div class = "EditData"> -->
+      <form class = "EditData" action="/users/<%= user.id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="edit_form_section">
+          <label class="EditLabel" for="first_name">Nombre</label>
+          <input class="EditInput" type="text" name="first_name" value="<%= user.first_name %>" required>
+        </div>
+        <div class="edit_form_section">
+          <label class="EditLabel" for="last_name">Apellido</label>
+          <input class="EditInput" type="text" name="last_name" value="<%= user.last_name %>" required>
+        </div>
+        <div class="edit_form_section">
+          <label class="EditLabel" for="birth_date">Fecha de Nacimiento</label>
+          <input class="EditInput" type="date" name="birth_date" value="<%= new Date(user.birth_date).toISOString().split('T')[0] %>" required>
+        </div>
+        <div class="edit_form_section">
+          <label class="EditLabel" for="avatar">Avatar</label>
+          <input type="file" name="avatar" accept="image/*">
+        </div>
+      <!-- </div> -->
       <div class="ButtonContainer">
-       <button class="UpdateButton" type="submit">Actualizar Usuario</button>
+       <button class="UpdateButton" type="submit">Guardar Cambios</button>
       </form>      
       <form action="/users/<%= user.id %>/delete" method="post">
-        <button class="DeleteButton"  type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?')">Eliminar Usuario</button>
+        <button class="DeleteButton"  type="submit" onclick="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?')">Eliminar Mi Cuenta</button>
       </form>
       </div>
-      </div>
+      <!-- </div> -->
     </main>
 
     <%- include('../partials/footer') %>
