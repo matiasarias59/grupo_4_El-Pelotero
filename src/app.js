@@ -6,11 +6,15 @@ const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
 
+const authMiddleware = require('./middlewares/authMiddleware');
+const guestMiddleware = require('./middlewares/guestMiddleware');
+
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
-const authMiddleware = require('./middlewares/authMiddleware');
-const guestMiddleware = require('./middlewares/guestMiddleware');
+
+const apiUsersRouter = require('./routes/api/users');
+const apiProductsRouter = require('./routes/api/product'); 
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
@@ -38,6 +42,8 @@ app.use('/', mainRouter);
 app.use('/products', productRouter);
 app.use('/users', usersRouter);
 
+app.use('/api/products', apiProductsRouter);
+app.use('/api/users', apiUsersRouter);
 
 const port = process.env.PORT || 3000;
 
