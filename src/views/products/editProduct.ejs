@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="formCreateP">
-			<form action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" class="form-box">
+			<form class="form-box" action="/products/<%= productToEdit.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 				<div class="rowFormP">
 					<div class="formName">
 						<label for="name" class="form-label">Nombre del producto:</label>
@@ -43,6 +43,10 @@
 					<div class="formDescription">
 						<label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input"><%= productToEdit.description %></textarea>
+					</div>
+					<div class="formPicture">
+						<label class="form-label" for="picture">Seleccione Foto de Producto:</label>
+						<input class="picture" type="file" name="picture" id="picture" />
 					</div>
 					<div class="formCreateButton">
 						<button type="submit" class="buy-now-button">Editar producto</button>

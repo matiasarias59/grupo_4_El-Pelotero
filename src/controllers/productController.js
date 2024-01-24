@@ -29,10 +29,19 @@ const controller = {
     },
     store: async (req, res) => {
         try {
-            const newProduct = {
-                ...req.body
-            };
-            await db.Product.create(newProduct);
+            const newProduct = {...req.body};
+            const createdProduct = await db.Product.create(newProduct);
+
+            if(req.file){
+
+                const newImage = {
+                    url: req.file.filename,
+                    default: true,
+                    products_id: createdProduct.id,
+                }
+                await db.ProductImages.create(newImage);
+            }
+
             return res.redirect('/products');
         } catch (error) {
             return res.status(500).send(error);
@@ -51,9 +60,11 @@ const controller = {
     },
     edit: async (req, res) => {
         try {
-            const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
+
+            const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
+            
             return res.render('products/editProduct', { productToEdit, brands, categories });
         } catch (error) {
             return res.status(500).send(error);
