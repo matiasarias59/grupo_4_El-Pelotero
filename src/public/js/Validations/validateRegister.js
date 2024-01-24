@@ -1,99 +1,169 @@
-function validateForm() {
-    const firstName = document.getElementById('register_firstName');
-    const lastName = document.getElementById('register_lastName');
-    const email = document.getElementById('register_mail');
-    const password = document.getElementById('register_password');
-    const confirmPassword = document.getElementById('register_confirm_password');
-    const avatar = document.getElementById('register_avatar');
-    const birthDate = document.getElementById('register_birthDate');
-
-    if (!validateText(firstName.value) || !validateText(lastName.value)) {
-        showErrorMessage(firstName, 'Nombre y apellido son obligatorios y no pueden contener números.');
-        showErrorMessage(lastName, 'Nombre y apellido son obligatorios y no pueden contener números.');
-        return false;
+const validateEmptyField = (message, field) => {
+    if (field.value.trim() === "" || !isNaN(field.value)) {
+      field.setCustomValidity(message);
+    } else {
+      field.setCustomValidity('');
     }
-
-    if (!validateBirthDate(birthDate.value)) {
-        showErrorMessage(birthDate, 'Por favor, ingrese una fecha de nacimiento válida (entre 1900 y 2006).');
-        return false;
+    field.reportValidity();
+  };
+  
+  const validateNonNumeric = (message, field) => {
+    if (isNaN(field.value)) {
+      field.setCustomValidity('');
+    } else {
+      field.setCustomValidity(message);
     }
-
-    if (!validateEmail(email.value)) {
-        showErrorMessage(email, 'Por favor, ingrese un correo electrónico válido.');
-        return false;
+    field.reportValidity();
+  };
+  
+  const validateEmailFormat = (field) => {
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailRegex.test(field.value)) {
+      field.setCustomValidity("Ingrese un correo electrónico válido");
+    } else {
+      field.setCustomValidity('');
     }
-
-     if (!validatePassword(password.value)) {
-        showErrorMessage(password, 'La contraseña es obligatoria y debe tener al menos 8 caracteres.');
-        return false;
-    }
-
-    if (password.value !== confirmPassword.value) {
-        showErrorMessage(confirmPassword, 'Las contraseñas no coinciden.');
-        return false;
-    }
-
-    if (!validateImage(avatar.value)) {
-        showErrorMessage(avatar, 'Por favor, seleccione una imagen válida (JPG, JPEG, PNG, GIF).');
-        return false;
-    }
-
-    if (!document.getElementById('register_terms_check').checked) {
-        showErrorMessage(document.getElementById('register_terms_check'), 'Debe aceptar los términos y condiciones.');
-        return false;
-    }
-
-    return true;
-}
-
-function validateText(text) {
-    return text.trim().length >= 2 && !/\d/.test(text); 
-}
-
-function validateBirthDate(birthDate) {
-    const currentDate = new Date();
-    const minBirthDate = new Date('1900-01-01');
-    const maxBirthDate = new Date('2006-12-31');
-    birthDate = new Date(birthDate);
-
-    return birthDate > minBirthDate && birthDate < maxBirthDate && birthDate < currentDate;
-}
-
-function showErrorMessage(element, message) {
-    const errorElement = document.getElementById(element.id + '_error');
-    if (errorElement) {
-        errorElement.textContent = message;
-    }
-}
-
-function clearErrorMessage(element) {
-    const errorElement = document.getElementById(element.id + '_error');
-    if (errorElement) {
-        errorElement.textContent = '';
-    }
-}
-
-
-document.getElementById('register_firstName').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
-
-document.getElementById('register_lastName').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
-
-document.getElementById('register_mail').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
-
-document.getElementById('register_password').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
-
-document.getElementById('register_confirm_password').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
-
-document.getElementById('register_birthDate').addEventListener('input', function () {
-    clearErrorMessage(this);
-});
+    field.reportValidity();
+  };
+  
+  const initializeValidation = () => {
+    const form = document.querySelector("form");
+    const fields = form.querySelectorAll("input, select");
+  
+    fields.forEach((field) => {
+      if (field.hasAttribute("data-validation")) {
+        const rules = field.getAttribute("data-validation").split(" ");
+  
+        rules.forEach((rule) => {
+          switch (rule) {
+            case "required":
+              field.addEventListener("input", () =>
+                validateEmptyField("Este campo es obligatorio", field)
+              );
+              break;
+            case "numeric":
+              field.addEventListener("input", () =>
+                validateNonNumeric("Ingrese solo números", field)
+              );
+              break;
+            case "email":
+              field.addEventListener("input", () => validateEmailFormat(field));
+              break;
+            case "minlength-8":
+              field.addEventListener("input", () => {
+                if (field.value.length < 8) {
+                  field.setCustomValidity("La contraseña debe tener al menos 8 caracteres");
+                } else {
+                  field.setCustomValidity('');
+                }
+                field.reportValidity();
+              });
+              break;
+            case "match-password":
+              const passwordField = document.querySelector("[name=password]");
+              field.addEventListener("input", () => {
+                if (passwordField.value !== field.value) {
+                  field.setCustomValidity("Las contraseñas no coinciden");
+                } else {
+                  field.setCustomValidity('');
+                }
+                field.reportValidity();
+              });
+              break;
+            case "accept-terms":
+              field.addEventListener("change", () => {
+                if (!field.checked) {
+                  field.setCustomValidity("Debe aceptar los términos y condiciones");
+                } else {
+                  field.setCustomValidity('');
+                }
+                field.reportValidity();
+              });
+              break;
+            default:
+              break;
+          }
+        });
+      }
+    });
+  };
+  
+  window.onload = function () {
+    initializeValidation();
+  
+    // Rest of the code
+  };
+  
+  window.onload = function () {
+    const userNameField = document.querySelector("[name=first_name]");
+    const lastNameField = document.querySelector("[name=last_name]");
+    const birthDateField = document.querySelector("[name=birth_date]");
+    const emailField = document.querySelector("[name=email]");
+    const passwordField = document.querySelector("[name=password]");
+    const confirmPasswordField = document.querySelector("[name=confirmPassword]");
+    const termsCheckField = document.querySelector("[name=termsCheck]");
+    const avatarField = document.querySelector("[name=avatar]");
+  
+    initializeValidation();
+  
+    userNameField.addEventListener("input", () =>
+      validateEmptyField("El nombre es obligatorio", userNameField)
+    );
+  
+    lastNameField.addEventListener("input", () =>
+      validateEmptyField("El apellido es obligatorio", lastNameField)
+    );
+  
+    birthDateField.addEventListener("input", () =>
+      validateEmptyField("La fecha de nacimiento es obligatoria", birthDateField)
+    );
+  
+    emailField.addEventListener("input", () => {
+      validateEmptyField("El correo es obligatorio", emailField);
+      validateEmailFormat(emailField);
+    });
+  
+    passwordField.addEventListener("input", () => {
+        validateEmptyField("La contraseña es obligatoria", passwordField);
+        if (passwordField.value.length < 8) {
+          passwordField.setCustomValidity("La contraseña debe tener al menos 8 caracteres");
+        } else {
+          passwordField.setCustomValidity('');
+        }
+        passwordField.reportValidity();
+      });
+      
+      confirmPasswordField.addEventListener("input", () => {
+        validateEmptyField("Confirme la contraseña", confirmPasswordField);
+        if (passwordField.value !== confirmPasswordField.value) {
+          confirmPasswordField.setCustomValidity(`Las contraseñas no coinciden`);
+        } else {
+          confirmPasswordField.setCustomValidity('');
+        }
+        confirmPasswordField.reportValidity();
+      });
+      
+      // Check if terms and conditions checkbox is checked
+      function checkTerms() {
+        if (!termsCheckField.checked) {
+          termsCheckField.setCustomValidity(`Debe aceptar los términos y condiciones`);
+        } else {
+          termsCheckField.setCustomValidity('');
+        }
+        termsCheckField.reportValidity();
+      }
+      
+      termsCheckField.addEventListener("change", checkTerms);
+    };
+    const registerButtons = document.querySelectorAll(".register_form_btn");
+    registerButtons.forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const form = document.querySelector(".register_form");
+        form.reportValidity();
+    
+        if (!form.checkValidity()) {
+          alert("Por Favor es necesario completar el formulario de Registro.");
+        }
+      });
+    });
