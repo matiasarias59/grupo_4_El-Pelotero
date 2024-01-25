@@ -112,9 +112,27 @@ const controller = {
     },
     destroy: async (req, res) => {
         try {
-            await db.ProductImages.destroy({ where: { products_id: req.params.id } });
+            const oldPicture = await db.ProductImages.findOne(
+                {
+                    where:{
+                        products_id: req.params.id
+                    }
+                }
+            );
+        
+            try {
+            
+                fs.rmSync(path.join(__dirname, '../public/img/products', oldPicture.url));
+            
+            } catch (error) {
+                console.log(error);
+            }
+            await db.ProductImages.destroy({ where: { id: oldPicture.id } });
+            
             await db.Product.destroy({ where: { id: req.params.id } });
+            
             return res.redirect('/products');
+        
         } catch (error) {
             return res.status(500).send(error);
         }

@@ -12,11 +12,14 @@
             <div class="favourite-icon">
               <i class="far fa-heart fa-3x "></i>
             </div>
-            <a href="/products/<%= product.id %>/edit">
-              <div class="edit">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </div>
-            </a>
+            <% if (locals.isLogged) { %>
+              
+              <a href="/products/<%= product.id %>/edit">
+                <div class="edit">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+              </a>
+              <% } %>
           </div>
           
           <div class="product-detail">
