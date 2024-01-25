@@ -5,11 +5,16 @@
       <section class="home-section">
         <div class="title-section">
           <h2 class="title">LISTADO DE PRODUCTOS</h2>
-          <a href="/products/create">
-            <div class="add-product">
-              <i class="fa-solid fa-plus"></i>
-            </div>
-          </a>
+
+          <% if (locals.isLogged) { %>
+            
+            
+            <a href="/products/create">
+              <div class="add-product">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </a>
+            <% } %>
         </div>
         <% if (locals.search) { %>
           <p class="search">Buscaste: <%= locals.search || null%></p>

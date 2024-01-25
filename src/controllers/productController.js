@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 const db = require('../database/models');
 const { Op } = require('sequelize');
 
@@ -29,10 +31,19 @@ const controller = {
     },
     store: async (req, res) => {
         try {
-            const newProduct = {
-                ...req.body
-            };
-            await db.Product.create(newProduct);
+            const newProduct = {...req.body};
+            const createdProduct = await db.Product.create(newProduct);
+
+            if(req.file){
+
+                const newImage = {
+                    url: req.file.filename,
+                    default: true,
+                    products_id: createdProduct.id,
+                }
+                await db.ProductImages.create(newImage);
+            }
+
             return res.redirect('/products');
         } catch (error) {
             return res.status(500).send(error);
@@ -51,9 +62,11 @@ const controller = {
     },
     edit: async (req, res) => {
         try {
-            const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
             const brands = await db.Brand.findAll();
             const categories = await db.Category.findAll();
+
+            const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
+
             return res.render('products/editProduct', { productToEdit, brands, categories });
         } catch (error) {
             return res.status(500).send(error);
@@ -65,6 +78,33 @@ const controller = {
                 ...req.body
             };
             await db.Product.update(editProduct, { where: { id: req.params.id } });
+            
+            if(req.file){
+                const oldPicture = await db.ProductImages.findOne(
+                        {
+                            where:{
+                                products_id: req.params.id
+                            }
+                        }
+                );
+                
+                try {
+                    
+                    fs.rmSync(path.join(__dirname, '../public/img/products', oldPicture.url));
+                    
+                } catch (error) {
+                    console.log(error);
+                }
+                await db.ProductImages.destroy({where: {id: oldPicture.id}});
+                
+                const newImage = {
+                    url: req.file.filename,
+                    default: true,
+                    products_id: req.params.id,
+                }
+                await db.ProductImages.create(newImage);
+            }
+
             return res.redirect('/products');
         } catch (error) {
             return res.status(500).send(error);
@@ -72,9 +112,27 @@ const controller = {
     },
     destroy: async (req, res) => {
         try {
-            await db.ProductImages.destroy({ where: { products_id: req.params.id } });
+            const oldPicture = await db.ProductImages.findOne(
+                {
+                    where:{
+                        products_id: req.params.id
+                    }
+                }
+            );
+        
+            try {
+            
+                fs.rmSync(path.join(__dirname, '../public/img/products', oldPicture.url));
+            
+            } catch (error) {
+                console.log(error);
+            }
+            await db.ProductImages.destroy({ where: { id: oldPicture.id } });
+            
             await db.Product.destroy({ where: { id: req.params.id } });
+            
             return res.redirect('/products');
+        
         } catch (error) {
             return res.status(500).send(error);
         }
