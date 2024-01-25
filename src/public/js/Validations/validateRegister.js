@@ -89,12 +89,6 @@ const validateEmptyField = (message, field) => {
   };
   
   window.onload = function () {
-    initializeValidation();
-  
-    // Rest of the code
-  };
-  
-  window.onload = function () {
     const userNameField = document.querySelector("[name=first_name]");
     const lastNameField = document.querySelector("[name=last_name]");
     const birthDateField = document.querySelector("[name=birth_date]");
@@ -143,7 +137,6 @@ const validateEmptyField = (message, field) => {
         confirmPasswordField.reportValidity();
       });
       
-      // Check if terms and conditions checkbox is checked
       function checkTerms() {
         if (!termsCheckField.checked) {
           termsCheckField.setCustomValidity(`Debe aceptar los términos y condiciones`);

@@ -7,7 +7,7 @@
     <main class="main-login">
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
-        <form class="login-form" action="/users/login" method="post" onsubmit=" return validateLoginForm()">
+        <form class="login-form" action="/users/login" method="post" onsubmit=" return  initializeValidation()">
           <label class="label-input-box" for="email">Correo Electrónico:</label>
           <input class="input-box" type="email" name="email" id="login-email" required>
           <% if (locals.errors && errors.email) { %>
@@ -24,7 +24,7 @@
         </form>
       </div>
     </main>
-    <script src="/js/Validations/validateLogin.js"></script>
+   
     <%- include('../partials/footer') %>
 </body>
 </html>
