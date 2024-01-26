@@ -15,6 +15,9 @@ const usersRouter = require('./routes/users');
 
 const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/product'); 
+const apiCategoriesRouter = require('./routes/api/categories');
+const apiBrandRouter = require('./routes/api/brands');
+
 
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
@@ -44,6 +47,8 @@ app.use('/users', usersRouter);
 
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);
+app.use('/api/categories', apiCategoriesRouter);
+app.use('/api/brands', apiBrandRouter);
 
 const port = process.env.PORT || 3000;
 
