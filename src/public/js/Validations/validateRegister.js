@@ -1,12 +1,14 @@
 const validateEmptyField = (message, field) => {
-  const errorSpan = field.nextElementSibling; // Obtiene el siguiente elemento (el <span> de error)
+  const errorSpan = field.nextElementSibling;
 
-  if (field.value.trim() === "" || !isNaN(field.value)) {
+  if (errorSpan && (field.value.trim() === "" || !isNaN(field.value))) {
     field.setCustomValidity(message);
-    errorSpan.textContent = message; // Muestra el mensaje de error
+    errorSpan.textContent = message;
   } else {
     field.setCustomValidity('');
-    errorSpan.textContent = ''; // Limpia el mensaje de error
+    if (errorSpan) {
+      errorSpan.textContent = '';
+    }
   }
   field.reportValidity();
 };
@@ -14,16 +16,17 @@ const validateEmptyField = (message, field) => {
 const validateNonNumeric = (message, field) => {
   const errorSpan = field.nextElementSibling;
 
-  if (isNaN(field.value)) {
+  if (errorSpan && isNaN(field.value)) {
     field.setCustomValidity('');
     errorSpan.textContent = '';
   } else {
     field.setCustomValidity(message);
-    errorSpan.textContent = message;
+    if (errorSpan) {
+      errorSpan.textContent = message;
+    }
   }
   field.reportValidity();
 };
-
 const validateEmailFormat = (field) => {
   const errorSpan = field.nextElementSibling;
 
@@ -44,10 +47,11 @@ const initializeValidation = () => {
 
   fields.forEach((field) => {
     if (field.hasAttribute("data-validation")) {
-      const rules = field.getAttribute("data-validation").split(" ");
       const errorSpan = document.createElement("span");
       errorSpan.className = "error-span";
       field.parentNode.appendChild(errorSpan);
+
+      const rules = field.getAttribute("data-validation").split(" ");
 
       rules.forEach((rule) => {
         switch (rule) {
@@ -131,46 +135,65 @@ window.onload = function () {
   });
 
   passwordField.addEventListener("input", () => {
-      validateEmptyField("La contraseña es obligatoria", passwordField);
-      if (passwordField.value.length < 8) {
-        passwordField.setCustomValidity("La contraseña debe tener al menos 8 caracteres");
-      } else {
-        passwordField.setCustomValidity('');
-      }
-      passwordField.reportValidity();
-    });
-    
-    confirmPasswordField.addEventListener("input", () => {
-      validateEmptyField("Confirme la contraseña", confirmPasswordField);
-      if (passwordField.value !== confirmPasswordField.value) {
-        confirmPasswordField.setCustomValidity(`Las contraseñas no coinciden`);
-      } else {
-        confirmPasswordField.setCustomValidity('');
-      }
-      confirmPasswordField.reportValidity();
-    });
-    
-    function checkTerms() {
-      if (!termsCheckField.checked) {
-        termsCheckField.setCustomValidity(`Debe aceptar los términos y condiciones`);
-      } else {
-        termsCheckField.setCustomValidity('');
-      }
-      termsCheckField.reportValidity();
+    validateEmptyField("La contraseña es obligatoria", passwordField);
+    if (passwordField.value.length < 8) {
+      passwordField.setCustomValidity("La contraseña debe tener al menos 8 caracteres");
+    } else {
+      passwordField.setCustomValidity('');
     }
-    
-    termsCheckField.addEventListener("change", checkTerms);
-  };
-  const registerButtons = document.querySelectorAll(".register_form_btn");
-  registerButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      event.preventDefault();
-      const form = document.querySelector(".register_form");
-      form.reportValidity();
-  
-      if (!form.checkValidity()) {
-        alert("Por Favor es necesario completar el formulario de Registro.");
-      }
-    });
+    passwordField.reportValidity();
   });
-    initializeValidation();
+
+  confirmPasswordField.addEventListener("input", () => {
+    validateEmptyField("Confirme la contraseña", confirmPasswordField);
+    if (passwordField.value !== confirmPasswordField.value) {
+      confirmPasswordField.setCustomValidity(`Las contraseñas no coinciden`);
+    } else {
+      confirmPasswordField.setCustomValidity('');
+    }
+    confirmPasswordField.reportValidity();
+  });
+
+  function checkTerms() {
+    if (!termsCheckField.checked) {
+      termsCheckField.setCustomValidity(`Debe aceptar los términos y condiciones`);
+    } else {
+      termsCheckField.setCustomValidity('');
+    }
+    termsCheckField.reportValidity();
+  }
+
+  termsCheckField.addEventListener("change", checkTerms);
+};
+
+const registerButton = document.querySelector('.register_button');
+
+const handleRegisterButtonClick = (event) => {
+  event.preventDefault();
+  const form = document.querySelector('.register_form');
+  if (!form.checkValidity()) {
+    alert('Por favor, es necesario completar el formulario de registro.');
+    return;
+  }
+  const formData = new FormData(form);
+  fetch('/register', {
+    method: 'POST',
+    body: formData,
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Error en el registro');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      alert('Registro exitoso');
+      console.log(data);
+    })
+    .catch((error) => {
+      alert('Error en el registro: ' + error.message);
+    });
+};
+registerButton.addEventListener('click', handleRegisterButtonClick);
+
+initializeValidation();
