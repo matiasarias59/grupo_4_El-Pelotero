@@ -7,7 +7,7 @@
     <main class="main-login">
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
-        <form class="login-form" action="/users/login" method="post" onsubmit=" return  initializeValidation()">
+        <form class="login-form" action="/users/login" method="post" onload="initializeValidation()" onsubmit="return validateCredentials(emailField, passwordField);">
           <label class="label-input-box" for="email">Correo Electrónico:</label>
           <input class="input-box" type="email" name="email" id="login-email" required>
           <% if (locals.errors && errors.email) { %>
