@@ -13,7 +13,7 @@ body {
   margin: 0 auto;
 }
 
-.products-title {
+.title {
   text-align: center;
   color: #fcfcfc;
   background-color: #345cbe;
@@ -39,28 +39,6 @@ body {
   margin: 10px 0;
 }
 
-.form-select{
-  display: flex;
-  flex-direction: row;
-}
-
-.add-btn {
-  background-color: #345cbe;
-  height: 3rem;
-  padding: 0.7rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-  border-radius: 0.5rem;
-  margin-left: 0.5rem;
-}
-
-.add-btn a {
-  color: white;
-}
-
 .form-input {
   font-size: 1.5rem;
   padding: 0.5rem 1.5rem;
@@ -69,7 +47,7 @@ body {
   width: 100%;
 }
 
-button.buy-now-button {
+.create-btn {
   border: none;
   border-radius: 1.5rem;
   text-align: center;
@@ -83,28 +61,21 @@ button.buy-now-button {
   cursor: pointer;
 }
 
-textarea.form-input {
-  min-height: 140px;
-  resize: vertical;
-  padding: 15px;
+.link-categories{
+  margin: auto;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
 }
 
-.formDeleteButton {
-  width: 100%;
+.link-categories a {
+  color: #345cbe;
+  transition: all 300ms
 }
 
-.delete-button {
-  border: none;
-  border-radius: 1.5rem;
-  text-align: center;
-  color: #fcfcfc;
-  background-color: #d43333;
-  font-size: 1.6rem;
-  font-weight: 400;
-  padding: 1.2rem 0;
-  width: 50%;
-  margin: 0 25% 0 25%;
-  cursor: pointer;
+.link-categories a:hover {
+  font-size: 1.7rem;
+  transition: all 300ms;
 }
 
 @media (min-width: 769px) {
@@ -124,5 +95,4 @@ textarea.form-input {
   .form-input {
     border: solid 0.1rem #183234;
   }
-
 }
