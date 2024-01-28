@@ -16,21 +16,36 @@
 					</div>
 					<div class="formBrand">
 						<label for="brands_id" class="form-label">Marca del producto:</label>
-						<select name="brands_id" id="brands_id" class="form-input" required>
-							<option value="">-</option>
-							<% locals.brands && brands.forEach(brand => { %>
-								<option value="<%= brand.id %>"><%= brand.name %></option>
-							<% }) %>
-						</select>
+						<div class="form-select">
+
+							<select name="brands_id" id="brands_id" class="form-input" required>
+								<option value="">-</option>
+								<% locals.brands && brands.forEach(brand => { %>
+									<option value="<%= brand.id %>"><%= brand.name %></option>
+									<% }) %>
+							</select>
+							<div class="add-btn">
+								<a href="/brands/create">
+									<i class="fa-solid fa-plus"></i>
+								</a>
+							</div>
+						</div>
 					</div>
 					<div class="formCat">
 						<label for="categories_id" class="form-label">Categoría:</label>
-						<select name="categories_id" id="categories_id" class="form-input" required>
-							<option value="">-</option>
-							<% locals.categories && categories.forEach(category => { %>
-								<option value="<%= category.id %>"><%= category.name %></option>
-							<% }) %>
-						</select>
+						<div class="form-select">
+							<select name="categories_id" id="categories_id" class="form-input" required>
+								<option value="">-</option>
+								<% locals.categories && categories.forEach(category => { %>
+									<option value="<%= category.id %>"><%= category.name %></option>
+									<% }) %>
+								</select>  
+								<div class="add-btn">
+									<a href="/categories/create">
+										<i class="fa-solid fa-plus"></i>
+									</a>
+								</div>
+						</div>
 					</div>
 					<div class="formPrice">
 						<label for="price" class="form-label">Precio del producto ($):</label>

@@ -22,8 +22,8 @@ const controller = {
     },
     create: async (req, res) => {
         try {
-            const brands = await db.Brand.findAll();
-            const categories = await db.Category.findAll();
+            const brands = await db.Brand.findAll({order:['name']});
+            const categories = await db.Category.findAll({order:['name']});
             return res.render('products/createProduct', { brands, categories });
         } catch (error) {
             return res.status(500).send(error);
@@ -62,8 +62,8 @@ const controller = {
     },
     edit: async (req, res) => {
         try {
-            const brands = await db.Brand.findAll();
-            const categories = await db.Category.findAll();
+            const brands = await db.Brand.findAll({order:['name']});
+            const categories = await db.Category.findAll({order:['name']});
 
             const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
 

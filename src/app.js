@@ -12,6 +12,8 @@ const guestMiddleware = require('./middlewares/guestMiddleware');
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
+const categoriesRouter = require('./routes/categories');
+const brandsRouter = require('./routes/brands');
 
 const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/product'); 
@@ -44,6 +46,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', mainRouter);
 app.use('/products', productRouter);
 app.use('/users', usersRouter);
+app.use('/categories', categoriesRouter);
+app.use('/brands', brandsRouter);
 
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);

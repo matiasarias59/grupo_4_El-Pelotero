@@ -1,0 +1,99 @@
+body {
+    background-color: #ececec;
+  }
+  
+  .containerForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+  }
+  
+  .form-box {
+    margin: 0 auto;
+  }
+  
+  .title {
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  
+  .formCreateP {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0 10vw;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  
+  .form-label {
+    display: inline-block;
+    font-size: 1.6em;
+    margin: 10px 0;
+  }
+  
+  .form-input {
+    font-size: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    border: 0;
+    border-radius: 1rem;
+    width: 100%;
+  }
+  
+  .edit-btn {
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin: 2rem 15%;
+    width: 70%;
+    cursor: pointer;
+  }
+  
+  .link-categories{
+    margin: auto;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .link-categories a {
+    color: #345cbe;
+    transition: all 300ms
+  }
+  
+  .link-categories a:hover {
+    font-size: 1.7rem;
+    transition: all 300ms;
+  }
+  
+  @media (min-width: 769px) {
+    .containerForm {
+      width: 40rem;
+      margin: 5rem auto;
+      border-radius: 3rem;
+      overflow: hidden;
+      background-color: white;
+      box-shadow: 0px 0px 10px rgba(100, 100, 100, 0.3);
+    }
+  
+    .formCreateP {
+      padding: 0 10%;
+    }
+  
+    .form-input {
+      border: solid 0.1rem #183234;
+    }
+  }
+  
