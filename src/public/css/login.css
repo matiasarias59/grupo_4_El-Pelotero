@@ -67,7 +67,9 @@ body {
     width: 100%;
     text-align: center;
 }
-
+.error-message{
+    color:crimson;
+}
 /* .link-register a:visited {
     color: #fcfcfc;
 }
