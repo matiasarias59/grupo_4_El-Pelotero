@@ -17,11 +17,11 @@ const createUserValidation = [
 
     body('password').
     notEmpty().withMessage('El campo contraseña no puede estar vacio').
-    isLength({min: 4}).withMessage('Contraseña demaciado corta'),
+    isLength({min: 6}).withMessage('Contraseña demaciado corta'),
 
 
-    body('confirmPassword').
-    notEmpty().withMessage('El campo contraseña no puede estar vacio')
+    /* body('confirmPassword').
+    notEmpty().withMessage('El campo contraseña no puede estar vacio') */
    
   
 

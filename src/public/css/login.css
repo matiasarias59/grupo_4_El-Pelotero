@@ -70,10 +70,14 @@ body {
 .error-message{
     color:crimson;
 }
-/* .link-register a:visited {
-    color: #fcfcfc;
-}
- */
+
+.error-span {
+    color: #cb0909;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+
 
 /* End Login */
 
