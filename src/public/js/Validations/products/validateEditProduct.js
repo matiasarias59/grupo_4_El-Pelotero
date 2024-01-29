@@ -37,6 +37,14 @@ window.onload = function () {
         errorSpan.textContent = message;
       }
     };
+    const validateFileType = (message, field) => {
+      const errorSpan = field.nextElementSibling;
+      errorSpan.textContent = '';
+      const extFile = field.files[0].name.split('.')[1];
+      if(extFile != ('jpg'||'png'||'jpeg')){
+        errorSpan.textContent = message
+      }
+    }
  
     nameField.addEventListener ('input', () => validateField('Es necesario un Nombre', nameField));
     nameField.addEventListener ('blur', () => validateField('Es necesario un Nombre', nameField));
@@ -55,7 +63,7 @@ window.onload = function () {
     quantityField.addEventListener('input',()=> validateNumber('La cantidad debe ser un número', quantityField) );
     quantityField.addEventListener('blur',()=> validateNumber('La cantidad debe ser un número', quantityField) );
 
-    pictureField.addEventListener('ur',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
+    pictureField.addEventListener('input',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
     pictureField.addEventListener('blur',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
   };
 
