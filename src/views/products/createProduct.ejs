@@ -12,7 +12,9 @@
 				<div class="rowFormP">
 					<div class="formName">
 						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Pelota Topper Retro II Campo" class="form-input">
+						<input type="text" id="name" name="name" placeholder="Ej: Pelota Topper Retro II Campo" class="form-input" value="<%= locals.oldData?.name %>">
+						<span id="name_error" class="error-span"><%= locals.errors?.name?.msg %></span>
+
 					</div>
 					<div class="formBrand">
 						<label for="brands_id" class="form-label">Marca del producto:</label>
@@ -21,7 +23,7 @@
 							<select name="brands_id" id="brands_id" class="form-input" required>
 								<option value="">-</option>
 								<% locals.brands && brands.forEach(brand => { %>
-									<option value="<%= brand.id %>"><%= brand.name %></option>
+									<option value="<%= brand.id %>" <%=locals.oldData?.brands_id == brand.id && 'selected' %> ><%= brand.name %></option>
 									<% }) %>
 							</select>
 							<div class="add-btn">
@@ -29,6 +31,8 @@
 									<i class="fa-solid fa-plus"></i>
 								</a>
 							</div>
+							<span id="brand_error" class="error-span"><%= locals.errors?.brands_id?.msg %></span>
+
 						</div>
 					</div>
 					<div class="formCat">
@@ -37,7 +41,7 @@
 							<select name="categories_id" id="categories_id" class="form-input" required>
 								<option value="">-</option>
 								<% locals.categories && categories.forEach(category => { %>
-									<option value="<%= category.id %>"><%= category.name %></option>
+									<option value="<%= category.id %>" <%=locals.oldData?.categories_id == category.id && 'selected' %> ><%= category.name %></option>
 									<% }) %>
 								</select>  
 								<div class="add-btn">
@@ -45,19 +49,25 @@
 										<i class="fa-solid fa-plus"></i>
 									</a>
 								</div>
+							<span id="category_error" class="error-span"><%= locals.errors?.categories_id?.msg %></span>
+
 						</div>
 					</div>
 					<div class="formPrice">
 						<label for="price" class="form-label">Precio del producto ($):</label>
-						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+						<input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input" value="<%= locals.oldData?.price %>">
+						<span id="price_error" class="error-span"><%= locals.errors?.price?.msg %></span>
+
 					</div>
 					<div class="formQuantity">
 						<label for="quantity" class="form-label">Cantidad en stock:</label>
-						<input type="text" id="quantity" name="quantity" placeholder="Ej: 99" class="form-input">
+						<input type="text" id="quantity" name="quantity" placeholder="Ej: 99" class="form-input" value="<%= locals.oldData?.quantity %>">
+						<span id="quantity_error" class="error-span"><%= locals.errors?.quantity?.msg %></span>
 					</div>
 					<div class="formDescription">
 						<label for="description" class="form-label">Descripción:</label>
-						<textarea name="description" id="description" class="form-input"></textarea>
+						<textarea name="description" id="description" class="form-input"><%= locals.oldData?.description %></textarea>
+						<span id="description_error" class="error-span"><%= locals.errors?.description?.msg %></span>
 					</div>
 
 					<div class="formPicture">
