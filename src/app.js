@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const methodOverride =  require('method-override');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const cors = require('cors');
 
 const authMiddleware = require('./middlewares/authMiddleware');
 const guestMiddleware = require('./middlewares/guestMiddleware');
@@ -13,6 +14,7 @@ const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
 
+const apiDatabaseRouter = require('./routes/api/database');
 const apiUsersRouter = require('./routes/api/users');
 const apiProductsRouter = require('./routes/api/product'); 
 const apiCategoriesRouter = require('./routes/api/categories');
@@ -37,6 +39,11 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
+// allow access to dashboard app 
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -45,6 +52,8 @@ app.use('/', mainRouter);
 app.use('/products', productRouter);
 app.use('/users', usersRouter);
 
+
+app.use('/api/database', apiDatabaseRouter);
 app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);
 app.use('/api/categories', apiCategoriesRouter);

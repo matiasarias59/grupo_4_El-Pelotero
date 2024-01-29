@@ -18,6 +18,20 @@ const controller = {
       res.status(500).json({error});
     }
   },
+  last: async (req, res) => {
+    try {
+      const user = await User.findOne({attributes: {exclude: ['password']}, include: ['rol'], order: [['id', 'DESC']]});
+      return res.json({
+        meta: {
+          status: 200,
+          url: req.originalUrl,
+        },
+        data: user,
+      });
+    } catch (error) {
+      return res.status(500).json({error});
+    }
+  },
   detail: async (req, res) => {
     try {
       const userId = req.params.id;
