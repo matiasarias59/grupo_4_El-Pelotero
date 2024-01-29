@@ -21,26 +21,23 @@ window.onload = function () {
     const errorSpan = selectElement.nextElementSibling;
     errorSpan.textContent = '';
     if (selectElement.value === "-") {
-      errorSpan.textContent =message;}
+      errorSpan.textContent = message;}
     };
   
   const validateNumber = (message, field) => {
     const errorSpan = field.nextElementSibling;
-    errorSpan.textContent = '';
-    if (isNaN(inputField.value.trim())) {
+    errorSpan.textContent = "";
+    if (isNaN(field.value.trim())) {
       errorSpan.textContent = message;}
     };
-  
-  const validateStringLength = (message, field, minLength, maxLength) => {
-    const errorSpan = field.nextElementSibling;
-    errorSpan.textContent = '';
-    if (field.value.trim().length < minLength || field.value.trim().length > maxLength) {
-      errorSpan.textContent = message;
-  }
-};
-  
-  const validateForm = (e) => {
-    e.preventDefault();
+    const validateQuantity = (message, field) => {
+      const errorSpan = field.nextElementSibling;
+      errorSpan.textContent = "";
+      if (isNaN(field.value.trim()) || field.value.trim() < 0 || field.value.trim() > 1000) {
+        errorSpan.textContent = message;
+      }
+    };
+ 
     nameField.addEventListener ('input', () => validateField('Es necesario un Nombre', nameField));
     nameField.addEventListener ('blur', () => validateField('Es necesario un Nombre', nameField));
     
@@ -53,13 +50,15 @@ window.onload = function () {
     priceField.addEventListener('input', () => validateNumber('El precio debe estar en números', priceField));
     priceField.addEventListener('blur', () => validateNumber('El precio debe estar en números', priceField));
     
-    quantityField.addEventListener('input', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityField));
-    quantityField.addEventListener('blur', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityField));
-    
-    pictureField.addEventListener('input',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
+    quantityField.addEventListener('input', () => validateQuantity('La cantidad debe ser entre 0-1000', quantityField));
+    quantityField.addEventListener('blur', () => validateQuantity('La cantidad debe ser entre 0-1000', quantityField));
+    quantityField.addEventListener('input',()=> validateNumber('La cantidad debe ser un número', quantityField) );
+    quantityField.addEventListener('blur',()=> validateNumber('La cantidad debe ser un número', quantityField) );
+
+    pictureField.addEventListener('ur',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
+    pictureField.addEventListener('blur',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
   };
 
   
-  form.addEventListener('submit', validateForm);
+  
  
-};
