@@ -119,15 +119,16 @@ const controller = {
                     }
                 }
             );
-        
-            try {
-            
-                fs.rmSync(path.join(__dirname, '../public/img/products', oldPicture.url));
-            
-            } catch (error) {
-                console.log(error);
+            if (oldPicture) {                        
+                try {
+                
+                    fs.rmSync(path.join(__dirname, '../public/img/products', oldPicture.url));
+                
+                } catch (error) {
+                    console.log(error);
+                }
+                await db.ProductImages.destroy({ where: { id: oldPicture.id } });
             }
-            await db.ProductImages.destroy({ where: { id: oldPicture.id } });
             
             await db.Product.destroy({ where: { id: req.params.id } });
             
