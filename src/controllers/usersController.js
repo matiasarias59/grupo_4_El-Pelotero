@@ -126,7 +126,7 @@ const controller = {
       const userId = req.params.id;
       await User.destroy({ where: { id: userId } });
       req.session.destroy();
-      res.redirect('/users/list');
+      res.redirect('/users/login');
     } catch (error) {
       console.error('Error al eliminar el usuario:', error);
       res.status(500).send('Error interno del servidor');
