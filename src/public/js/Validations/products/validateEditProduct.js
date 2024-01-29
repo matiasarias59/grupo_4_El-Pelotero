@@ -1,68 +1,62 @@
 window.onload = function () {
   const form = document.querySelector('form');
-  const nameField = document.getElementById("name");
-  const brandField = document.getElementById("brands")
-  const categoryField = document.getElementById("categories");
-  const priceField = document.getElementById("price");
-  const quantityField = document.getElementById("quantity");
-  const pictureField = document.getElementById("picture");
+  const nameField = document.querySelector('[name=name]');
+  const brandField = document.querySelector('[name=brands_id]')
+  const categoryField = document.querySelector('[name=categories_id]');
+  const priceField = document.querySelector('[name=price]');
+  const quantityField = document.querySelector('[name=quantity]');
+  const pictureField = document.querySelector('[name=picture]');
   const descriptionInput = document.getElementById("description");
     
   
-  const validateField = (message, inputField) => {
-    if (inputField.value.trim() === "") {
-      inputField.setCustomValidity(message);
-    } else {
-      inputField.setCustomValidity("");
-    }
-    inputField.reportValidity();
+  const validateField = (message, field) => {
+    const errorSpan = field.nextElementSibling;
+    errorSpan.textContent = '';
+    if (field.value.trim() === '' || !isNaN(field.value)) {
+      errorSpan.textContent = message;
+    };
   };
 
   const validateOption = (message, selectElement) => {
+    const errorSpan = selectElement.nextElementSibling;
+    errorSpan.textContent = '';
     if (selectElement.value === "-") {
-      selectElement.setCustomValidity(message);
-    } else {
-      selectElement.setCustomValidity("");
-    }
-    selectElement.reportValidity();
-  };
+      errorSpan.textContent =message;}
+    };
   
-  const validateNumber = (message, inputField) => {
+  const validateNumber = (message, field) => {
+    const errorSpan = field.nextElementSibling;
+    errorSpan.textContent = '';
     if (isNaN(inputField.value.trim())) {
-      inputField.setCustomValidity(message);
-    } else {
-      inputField.setCustomValidity("");
-    }
-    inputField.reportValidity();
-  };
+      errorSpan.textContent = message;}
+    };
   
-  const validateStringLength = (message, inputField, minLength, maxLength) => {
-    if (inputField.value.trim().length < minLength || inputField.value.trim().length > maxLength) {
-      inputField.setCustomValidity(message);
-    } else {
-      inputField.setCustomValidity("");
-    }
-    inputField.reportValidity();
-  };
-
+  const validateStringLength = (message, field, minLength, maxLength) => {
+    const errorSpan = field.nextElementSibling;
+    errorSpan.textContent = '';
+    if (field.value.trim().length < minLength || field.value.trim().length > maxLength) {
+      errorSpan.textContent = message;
+  }
+};
+  
   const validateForm = (e) => {
     e.preventDefault();
-    nameField.addEventListener ('input', () => validateField('Es necesario un Nombre', nameInput));
-    nameField.addEventListener ('blur', () => validateField('Es necesario un Nombre', nameInput));
+    nameField.addEventListener ('input', () => validateField('Es necesario un Nombre', nameField));
+    nameField.addEventListener ('blur', () => validateField('Es necesario un Nombre', nameField));
     
-    brandField.addEventListener('input', () => validateOption('Es necesaria una Marca', brandInput));
-    brandField.addEventListener('blur', () => validateOption('Es necesaria una Marca', brandInput));
+    brandField.addEventListener('input', () => validateOption('Es necesaria una Marca', brandField));
+    brandField.addEventListener('blur', () => validateOption('Es necesaria una Marca', brandField));
     
-    categoryField.addEventListener('input',() => validateOption ('Es necesaria una Categoría', categoryInput) );
-    categoryField.addEventListener('blur',() => validateOption ('Es necesaria una Categoría', categoryInput) );
+    categoryField.addEventListener('input',() => validateOption ('Es necesaria una Categoría', categoryField) );
+    categoryField.addEventListener('blur',() => validateOption ('Es necesaria una Categoría', categoryField) );
     
-    priceField.addEventListener('input', () => validateNumber('El precio debe estar en números', priceInput));
-    priceField.addEventListener('blur', () => validateNumber('El precio debe estar en números', priceInput));
+    priceField.addEventListener('input', () => validateNumber('El precio debe estar en números', priceField));
+    priceField.addEventListener('blur', () => validateNumber('El precio debe estar en números', priceField));
     
-    quantityField.addEventListener('input', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityInput));
-    quantityField.addEventListener('blur', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityInput));
+    quantityField.addEventListener('input', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityField));
+    quantityField.addEventListener('blur', () => validateStringLength(0, 'La cantidad debe ser entre 0-1000', quantityField));
     
-    pictureField.addEventListener('input',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureInput) );
+    pictureField.addEventListener('input',()=> validateFileType('Solo puedes subir archivos Jpg o Png', pictureField) );
   };
 
   
