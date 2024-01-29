@@ -1,0 +1,29 @@
+<%- include('../partials/head', {styles:['createCategory', 'headerfooter'], title: 'Nueva Categoria'}) %>
+<body>
+    <%- include('../partials/header') %>
+	<div class="containerForm">
+		<div class="row">
+			<div class="formTitle">
+				<h1 class="title">Agregar Categoria</h2>
+			</div>
+		</div>
+		<div class="formCreateP">
+			<form class="form-box" action="/categories/" method="POST" enctype="application/x-www-form-urlencoded">
+				<div class="rowFormP">
+					<div class="formName">
+						<label for="name" class="form-label">Nombre:</label>
+						<input type="text" id="name" name="name" placeholder="Ingrese el nombre" class="form-input">
+					</div>
+					<div class="formCreateButton">
+						<button type="submit" class="create-btn">Crear</button>
+					</div>
+				</div>
+				<div class="link-categories">
+					<a href="/categories">Ver todas las Categorías</a>
+				</div>
+			</form>
+		</div>
+	</div>
+    <%- include('../partials/footer') %>
+</body>	
+</html>

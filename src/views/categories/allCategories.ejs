@@ -1,0 +1,33 @@
+<%- include('../partials/head', {styles:['allCategories', 'headerfooter']}) %>
+  <body>
+    <%- include('../partials/header') %>
+    <main class="main-home">
+      <section class="home-section">
+        <div class="title-section">
+          <h2 class="title">LISTADO DE CATEGORIAS</h2> 
+            <a href="/categories/create">
+              <div class="add-category">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </a>
+        </div>
+        <ul class="categories-list">
+            <% locals.categories.forEach((category)=> { %>
+                <li class="category-item">
+                  <div class="edit-btn">
+                    <a href="/categories/<%= category.id %>/edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                  </div>
+                    <span>
+                      <%= category.name.toUpperCase() %>
+                    </span>
+                </li>
+            <% }) %>
+        </ul>
+
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>
