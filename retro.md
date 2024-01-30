@@ -68,3 +68,26 @@
 
 #### Qué debemos continuar haciendo 
 - Pedir ayuda si nos atrasamos o nos atascamos con algun problema
+
+## Sprint 7
+
+#### Qué hicimos bien?
+- Dividimos adecuadamente las tareas
+
+#### Qué debemos mejorar?
+- Los tiempos de resolución de tareas
+
+#### Qué debemos continuar haciendo 
+- Hay que seguir testeando funcionalidades para ver puntos debiles del proyecto
+
+## Sprint 8
+
+#### Qué hicimos bien?
+- Mejoramos visualmente las vistas
+- Nos pudimos enfocar en resolver pequeños bugs
+
+#### Qué debemos mejorar?
+- Nos estancamos en la division de tareas pendientes
+
+#### Qué debemos continuar haciendo 
+- Tener curiosidad por el trabajo del compañero. Consultar como está, si necesita algo.
