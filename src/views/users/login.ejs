@@ -7,14 +7,12 @@
     <main class="main-login">
       <div class="login">
         <h1 class="login-heading">MI CUENTA</h1>
-        <form class="login-form" action="/users/login" method="post">
+        <form class="login-form" action="/users/login" method="post" >
+      
           <label class="label-input-box" for="email">Correo Electrónico:</label>
-          <input class="input-box" type="email" name="email" id="login-email" required>
-          <% if (locals.errors && errors.email) { %>
-            <div class ="text-danger">
-              <%= errors.email.msg %>
-            </div>
-          <% } %>
+          <input class="input-box" type="email" name="email" id="login-email" required> 
+          <span id="email_error" class="error-span"><%= locals.errors?.email?.msg %></span>
+          
           <label class="label-input-box" for="password">Contraseña:</label>
           <input class="input-box" type="password" name="password" id="login-password" required>
           <input type="checkbox" name="remember_me" id="remember_me">
@@ -24,6 +22,9 @@
         </form>
       </div>
     </main>
+   
     <%- include('../partials/footer') %>
+  <script src="/js/validations/users/validateLogin.js"></script>
+
 </body>
 </html>

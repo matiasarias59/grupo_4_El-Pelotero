@@ -16,7 +16,6 @@ const controller = {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        console.log('entre aca');
         return res.render('./users/register', {
           errors: errors.mapped(),
           oldData: req.body,

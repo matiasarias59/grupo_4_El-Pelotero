@@ -11,18 +11,22 @@
         <div class="edit_form_section">
           <label class="EditLabel" for="first_name">Nombre</label>
           <input class="EditInput" type="text" name="first_name" value="<%= user.first_name %>" required>
+          <span id="first_name_error" class="error-span"><%= locals.errors?.first_name?.msg %></span>
         </div>
         <div class="edit_form_section">
           <label class="EditLabel" for="last_name">Apellido</label>
           <input class="EditInput" type="text" name="last_name" value="<%= user.last_name %>" required>
+          <span id="last_name_error" class="error-span"><%= locals.errors?.last_name?.msg %></span>
         </div>
         <div class="edit_form_section">
           <label class="EditLabel" for="birth_date">Fecha de Nacimiento</label>
           <input class="EditInput" type="date" name="birth_date" value="<%= new Date(user.birth_date).toISOString().split('T')[0] %>" required>
+          <span id="birth_date_error" class="error-span"><%= locals.errors?.birth_date?.msg %></span>
         </div>
         <div class="edit_form_section">
           <label class="EditLabel" for="avatar">Avatar</label>
           <input type="file" name="avatar" accept="image/*">
+          <span id="avatar_error" class="error-span"><%= locals.errors?.avatar?.msg %></span>
         </div>
       <!-- </div> -->
       <div class="ButtonContainer">
@@ -36,5 +40,7 @@
     </main>
 
     <%- include('../partials/footer') %>
+    <script src="/js/validations/users/validateEditUser.js"></script>
+
   </body>
 </html>

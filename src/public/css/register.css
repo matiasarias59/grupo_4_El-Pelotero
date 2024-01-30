@@ -72,7 +72,15 @@ body {
   font-size: 1.5rem;
   margin-top: 0.5rem;
 }
+.invalid {
+  border: 1px solid red;
+}
 
+.error-span {
+  color: #cb0909;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
 /* --------------------- */
 /* --- Media Queries --- */
 /* --------------------- */
