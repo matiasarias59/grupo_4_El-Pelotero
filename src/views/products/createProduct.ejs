@@ -9,6 +9,11 @@
 		</div>
 		<div class="formCreateP">
 			<form class="form-box" action="/products/" method="POST" enctype="multipart/form-data">
+				<div >
+					<ul id="errorsList">
+
+					</ul>
+				</div>
 				<div class="rowFormP">
 					<div class="formName">
 						<label for="name" class="form-label">Nombre del producto:</label>
@@ -73,6 +78,8 @@
 					<div class="formPicture">
 						<label class="form-label" for="picture">Seleccione Foto de Producto:</label>
 						<input class="picture" type="file" name="picture" id="picture" />
+						<span id="picture_error" class="error-span"><%= locals.errors?.picture?.msg %></span>
+
 					</div>
 
 					<div class="formCreateButton">

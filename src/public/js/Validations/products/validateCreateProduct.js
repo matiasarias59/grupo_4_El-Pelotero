@@ -1,4 +1,5 @@
 window.onload = function () {
+<<<<<<< HEAD
   
     const nameField = document.querySelector('[name=name]');
     const priceField = document.querySelector('[name=price]');
@@ -72,4 +73,102 @@ descriptionField.addEventListener("input", () => validateStringLength("La descri
 
 imageField.addEventListener('blur',()=> validateFileType('Solo puedes subir archivos Jpg o Png', imageField) );
 imageField.addEventListener('input',()=> validateFileType('Solo puedes subir archivos Jpg o Png', imageField) );
+=======
+  const form = document.querySelector('.form-box');
+  const nameField = document.getElementById('name');
+  const priceField = document.getElementById('price');
+  const quantityField = document.getElementById('quantity');
+  const descriptionField = document.getElementById('description');
+  const pictureField = document.querySelector('[name=picture]');
+  const errorSpan = document.getElementsByClassName('error-span');
+
+
+
+  const handleSubmit = (e) => {
+
+
+    for(span of errorSpan){
+      span.innerHTML = '';
+
+    }
+
+    const errors = [];
+
+    if (nameField.value.trim() === '') {
+      const message = 'El nombre del producto es obligatorio';
+      errors.push({
+        field: nameField,
+        message,
+      });
+    }
+
+    if (priceField.value.trim() === '') {
+      const message = 'El precio del producto es obligatorio';
+      errors.push({
+        field: priceField,
+        message,
+      });
+    }
+
+    if (descriptionField.value.trim() === '') {
+      const message = 'La descripción del producto es obligatoria';
+
+      errors.push({
+        field: descriptionField,
+        message,
+      });
+    }
+
+    if (isNaN(priceField.value.trim())) {
+      const message = 'El precio del producto debe ser un número';
+
+      errors.push({
+        field: priceField,
+        message,
+      });
+    }
+
+    if (quantityField.value.trim() === '') {
+      const message = 'La cantidad del producto es obligatoria';
+
+      errors.push({
+        field: quantityField,
+        message,
+      });
+    }
+
+    if (isNaN(quantityField.value.trim())) {
+      const message = 'La cantidad del producto debe ser un número';
+
+      errors.push({
+        field: quantityField,
+        message,
+      });
+    }
+
+      if(pictureField.files.length != 0){
+
+        const extFile = pictureField.files[0]?.name?.split('.')[1];
+        if((extFile != 'jpg')&& (extFile !='png')){
+          const message = 'Solo puedes subir archivos Jpg o Png'
+          errors.push({
+            field: pictureField,
+            message,
+          });
+        }
+      }  
+    
+
+    if (errors.length != 0) {
+      console.log(errors)
+      e.preventDefault();
+      errors.forEach((error) => {
+        const errorSpan = error.field.nextElementSibling;
+        errorSpan.textContent = error.message;
+      });
+    }
+  };
+
+  form.addEventListener('submit', (e) => handleSubmit(e));
+>>>>>>> 33bffa700c0652f8681e540ea115f96879d28382
 };

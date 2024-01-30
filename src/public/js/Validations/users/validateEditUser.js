@@ -19,7 +19,7 @@ window.onload = function () {
       const errorSpan = field.nextElementSibling;
       errorSpan.textContent = '';
       const extFile = field.files[0].name.split('.')[1];
-      if(extFile != ('jpg'||'png'||'jpeg')){
+      if((extFile != 'jpg')&& (extFile !='png')){
         errorSpan.textContent = message
       }
     }

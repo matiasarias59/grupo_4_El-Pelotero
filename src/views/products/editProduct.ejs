@@ -73,6 +73,7 @@
 					<div class="formPicture">
 						<label class="form-label" for="picture">Seleccione Foto de Producto:</label>
 						<input class="picture" type="file" name="picture" id="picture" />
+						<span id="picture_error" class="error-span"><%= locals.errors?.picture?.msg %></span>
 					</div>
 					<div class="formCreateButton">
 						<button type="submit" class="buy-now-button">Editar producto</button>
@@ -85,6 +86,10 @@
 		</div>
 	</div>
     <%- include('../partials/footer') %>
+<<<<<<< HEAD
 	<script src="/js/validations/products/validateEditProduct.js"></script>
+=======
+	<script src="/js/validations/products/validateCreateProduct.js"></script>
+>>>>>>> 33bffa700c0652f8681e540ea115f96879d28382
 </body>	
 </html>
