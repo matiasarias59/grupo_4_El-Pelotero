@@ -93,4 +93,80 @@
         <i class="fas fa-search"></i>
       </button>
     </form>
+
+
+      <nav class="main_nav-bar_mobile">
+
+       
+
+        <ul class="main_nav-bar_mobile_list">
+          <li class="main_nav-bar_mobile_item">
+            <nav class="user_nav-bar_mobile">
+      
+              <div class="user_account">
+                  <a href="/users/<%=locals.isLogged? 'account':'login'%>">
+                      <i class="fas fa-user acount_icon"></i>
+                  </a>
+              </div>
+          
+            <div class="user_likes">
+              <a href="#">
+                <i class="fas fa-heart likes_icon"></i>
+              </a>
+            </div>
+            <div class="user_cart">
+              <a href="/cart">
+                <i class="fas fa-shopping-cart cart_icon"></i>
+              </a>
+            </div>
+            <% if (locals.isLogged) { %>
+              <div class="user_logout">
+                  <a href="/users/logout">
+                      <i class="fas fa-sign-out-alt logout_icon"></i>
+                  </a>
+              </div>
+          <% } %>
+        </nav>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            Marcas
+            <ul class="main_nav-bar_mobile_brand_list">
+              <li class="main_nav-bar_mobile_brand_item">
+                <a href="#"> Topper</a>
+              </li>
+              <li class="main_nav-bar_mobile_brand_item">
+                <a href="#"> Adidas</a>
+              </li>
+              <li class="main_nav-bar_mobile_brand_item">
+                <a href="#"> Dribble</a>
+              </li>
+              <li class="main_nav-bar_mobile_brand_item">
+                <a href="#"> Wilson</a>
+              </li>
+              <li class="main_nav-bar_mobile_brand_item">
+                <a href="#"> Nike</a>
+              </li>
+            </ul>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Fútbol</a>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Rugby</a>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Basket</a>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Tenis</a>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Hockey</a>
+          </li>
+          <li class="main_nav-bar_mobile_item">
+            <a href="#"> Más</a>
+          </li>
+        </ul>
+      </nav>
+
   </header>
