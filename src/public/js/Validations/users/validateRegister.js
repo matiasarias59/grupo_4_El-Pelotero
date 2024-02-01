@@ -36,7 +36,13 @@ window.onload = function () {
   const validateMinLengthField = (minLenght, message, field) => {
     const errorSpan = field.nextElementSibling;
     errorSpan.textContent = '';
-    if (field.value.length < minLenght) {
+    if (field.value.trim() === '') {
+      errorSpan.textContent = 'La contraseña no puede estar en blanco';
+    }
+    else if (field.value.includes(' ')) {
+      errorSpan.textContent = 'La contraseña no puede contener espacios';
+    }
+    else if (field.value.length < minLenght) {
       errorSpan.textContent = message;
     }
   };
@@ -84,4 +90,3 @@ window.onload = function () {
   avatarField.addEventListener('input', ()=>{validateFileType('Solo puedes subir archivos Jpg o Png', avatarField)})
   
 };
-
