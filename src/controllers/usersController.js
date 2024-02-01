@@ -47,7 +47,7 @@ const controller = {
         });
       }
 
-      res.status(500).send('Error interno del servidor');
+      res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
     }
   },
 /*   index: async (req, res) => {
@@ -79,7 +79,7 @@ const controller = {
       res.render('./users/edit', { user });
     } catch (error) {
       console.error('Error al obtener el formulario de edición:', error);
-      res.status(500).send('Error interno del servidor');
+      res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
     }
   },
 
@@ -117,7 +117,7 @@ const controller = {
       res.redirect(`/users/account`);
     } catch (error) {
       console.error('Error al actualizar el usuario:', error);
-      res.status(500).send('Error interno del servidor');
+      res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
     }
   },
 
@@ -129,7 +129,7 @@ const controller = {
       res.redirect('/users/list');
     } catch (error) {
       console.error('Error al eliminar el usuario:', error);
-      res.status(500).send('Error interno del servidor');
+      res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
     }
   },
 
@@ -164,7 +164,7 @@ const controller = {
       }
     } catch (error) {
       console.error('Error al procesar el inicio de sesión:', error);
-      res.status(500).send('Error interno del servidor');
+      res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
     }
   },
   logout: (req, res) => {

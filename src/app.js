@@ -10,6 +10,7 @@ const cors = require('cors');
 const authMiddleware = require('./middlewares/authMiddleware');
 const guestMiddleware = require('./middlewares/guestMiddleware');
 
+
 const mainRouter = require('./routes/main');
 const productRouter = require('./routes/product');
 const usersRouter = require('./routes/users');
@@ -23,6 +24,7 @@ const apiCategoriesRouter = require('./routes/api/categories');
 const apiBrandRouter = require('./routes/api/brands');
 
 
+const errorMiddleware = require('./middlewares/errorMiddleware');
 const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 const app = express();
 
@@ -62,6 +64,8 @@ app.use('/api/products', apiProductsRouter);
 app.use('/api/users', apiUsersRouter);
 app.use('/api/categories', apiCategoriesRouter);
 app.use('/api/brands', apiBrandRouter);
+
+app.use(errorMiddleware);
 
 const port = process.env.PORT || 3000;
 
