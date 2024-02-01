@@ -54,7 +54,7 @@ h1 {
     color: #fcfcfc;
     margin: 0.5rem auto;
     font-size: 2rem;
-    text-decoration: underline;
+    text-decoration: none;
     /* width: 100% */;
     text-align: center;
 }
