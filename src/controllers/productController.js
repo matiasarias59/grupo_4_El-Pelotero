@@ -18,7 +18,7 @@ const controller = {
             });
             return res.render('products/allProducts', { products, search });
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     create: async (req, res) => {
@@ -27,7 +27,7 @@ const controller = {
             const categories = await db.Category.findAll({order:['name']});
             return res.render('products/createProduct', { brands, categories });
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     store: async (req, res) => {
@@ -61,18 +61,18 @@ const controller = {
 
             return res.redirect('/products');
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     productDetail: async (req, res) => {
         try {
             const product = await db.Product.findByPk(req.params.id, { include: ['images', 'brand', 'category'] });
             if (!product) {
-                return res.status(404).json({ message: 'Producto no encontrado' });
+                return res.status(404).render('errorView',{ message: 'Producto no encontrado' });
             }
             return res.render('products/productDetail', { product });
         } catch (error) {
-            return res.status(500).send(error);
+           return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     edit: async (req, res) => {
@@ -82,9 +82,13 @@ const controller = {
 
             const productToEdit = await db.Product.findByPk(req.params.id, { include: ['brand', 'category'] });
 
+            if (!productToEdit) {
+                return res.status(404).render('errorView',{ message: 'Producto no encontrado' });
+            }
+
             return res.render('products/editProduct', { productToEdit, brands, categories });
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     update: async (req, res) => {
@@ -118,7 +122,6 @@ const controller = {
                             }
                         }
                 );
-                console.log(oldPicture)
                 try {
                     
 
@@ -144,7 +147,7 @@ const controller = {
 
             return res.redirect('/products');
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
     },
     destroy: async (req, res) => {
@@ -174,7 +177,7 @@ const controller = {
             return res.redirect('/products');
         
         } catch (error) {
-            return res.status(500).send(error);
+            return res.status(500).render('errorView',{ message: 'Parece que hay un error en el servidor. Por favor intenta más tarde' });
         }
         
     }

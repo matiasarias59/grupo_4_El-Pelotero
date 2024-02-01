@@ -1,0 +1,76 @@
+/* Login */
+
+body {
+    background-color: #ececec;
+}
+
+h1 {
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 3rem;
+    font-weight: 400;
+    padding: 1rem 0;
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.error-message-container{
+    margin: 0.5rem auto;
+    min-height: 25vh;
+    width: 80%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message {
+    font-size: 3rem;
+    color: #183234;
+}
+
+.home-btn {
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    color: #fcfcfc;
+    background-color: #345cbe;
+    font-size: 2rem;
+    font-weight: 400;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: fit-content;
+    cursor: pointer;
+    transition: all 300ms;
+
+}
+
+.home-btn:hover {
+    scale: 110%;
+    transition: all 300ms;
+}
+.home-btn a {
+    display: flex;
+    color: #fcfcfc;
+    margin: 0.5rem auto;
+    font-size: 2rem;
+    text-decoration: none;
+    /* width: 100% */;
+    text-align: center;
+}
+
+.home-btn a:visited{
+    color: #fcfcfc;
+}
+
+  
+
+
+/* End Login */
+
+/* Media Queries */
+    /* login Desktop */
+@media (min-width: 769px) {
+   
+}
+/* End Media Queries */

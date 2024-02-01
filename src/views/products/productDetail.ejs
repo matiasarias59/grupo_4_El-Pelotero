@@ -29,7 +29,7 @@
             </div>
             
             <p class="price">$<%= new Intl.NumberFormat('es-AR').format(product.price) %></p>
-            <p class="card-text">3 cuotas sin interes</p>
+            <p class="card-text"><span id="product-qty"><%= `${product.quantity}`%></span> disponibles</p>
             <p class="bottom-text">Cantidad</p>
         
             <div class="counter">
@@ -87,5 +87,6 @@
     </main>
 
     <%- include('../partials/footer') %>
+    <script src="/js/productDetail.js"></script>
 </body>
 </html>

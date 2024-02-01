@@ -1,0 +1,16 @@
+<%- include('partials/head', {styles:['errorView', 'headerfooter']}) %>
+  <body>
+    <%- include('./partials/header') %>
+    <main class="main-home">
+        <h1>Ops..</h1>
+        <div class="error-message-container">
+
+            <p class="error-message"><%= locals?.message %></p>
+        </div>
+        <div class="home-btn">
+            <a href="/">Volver al Inicio</a>
+        </div>
+    </main>
+    <%- include('./partials/footer') %>
+  </body>
+</html>
